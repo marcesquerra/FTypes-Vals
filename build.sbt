@@ -16,6 +16,12 @@ sonatypeSettings
 
 unidocSettings
 
+site.settings ++ ghpages.settings
+
+site.addMappingsToSiteDir(mappings in (ScalaUnidoc, packageDoc), "latest/api")
+
+git.gitRemoteRepo := "git@github.com:marcesquerra/FTypes.git"
+
 organization := "com.bryghts.ftypes"
 
 scalaVersion := "2.10.3"
