@@ -1,3 +1,18 @@
+import _root_.sbt.Keys._
+import _root_.sbt.Project
+import _root_.sbtrelease.ReleaseStateTransformations
+import _root_.sbtrelease.ReleaseStateTransformations._
+import _root_.sbtrelease.ReleaseStep
+import SonatypeKeys._
+import sbtrelease._
+import ReleaseStateTransformations._
+import ReleaseKeys._
+import xerial.sbt.Sonatype.SonatypeKeys
+
+releaseSettings
+
+sonatypeSettings
+
 organization := "com.bryghts.ftypes"
 
 scalaVersion := "2.10.3"
@@ -7,6 +22,8 @@ name := "FTypes"
 scalaVersion := "2.11.5"
 
 publishMavenStyle := true
+
+profileName  := "com.bryghts"
 
 publishTo := {
     val nexus = "https://oss.sonatype.org/"
@@ -37,3 +54,26 @@ pomExtra := (
         </developers>
     )
 
+
+releaseProcess := Seq[ReleaseStep](
+    checkSnapshotDependencies,                    // : ReleaseStep
+    inquireVersions,                              // : ReleaseStep
+    runClean,                                     // : ReleaseStep
+    runTest,                                      // : ReleaseStep
+    setReleaseVersion,                            // : ReleaseStep
+    commitReleaseVersion,                         // : ReleaseStep, performs the initial git checks
+    tagRelease,                                   // : ReleaseStep
+    ReleaseStep(
+        action = { state =>
+            val extracted = Project extract state
+            extracted.runAggregated(PgpKeys.publishSigned in Global in extracted.get(thisProjectRef), state)
+        }
+    ),           // : ReleaseStep, checks whether `publishTo` is properly set up
+    ReleaseStep{ state =>
+        val extracted = Project extract state
+        extracted.runAggregated(sonatypeReleaseAll in Global in extracted.get(thisProjectRef), state)
+    }, // : ReleaseStep, checks whether `publishTo` is properly set up
+    setNextVersion,                               // : ReleaseStep
+    commitNextVersion                            // : ReleaseStep
+    //pushChanges                                   // : ReleaseStep, also checks that an upstream branch is properly configured
+)
