@@ -8,10 +8,13 @@ import sbtrelease._
 import ReleaseStateTransformations._
 import ReleaseKeys._
 import xerial.sbt.Sonatype.SonatypeKeys
+import com.typesafe.sbt.SbtGit.{GitKeys => git}
 
 releaseSettings
 
 sonatypeSettings
+
+unidocSettings
 
 organization := "com.bryghts.ftypes"
 
