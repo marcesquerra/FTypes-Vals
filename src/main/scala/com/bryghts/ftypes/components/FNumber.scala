@@ -3,6 +3,9 @@ package com.bryghts.ftypes
 import scala.concurrent.{ExecutionContext, Future}
 import scala.language.higherKinds
 
+/**
+ * Sample Comment
+ */
 package object components {
 
 
