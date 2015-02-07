@@ -1,3 +1,7 @@
+organization := "com.bryghts.ftypes"
+
+scalaVersion := "2.10.3"
+
 name := "FTypes"
 
 scalaVersion := "2.11.5"
