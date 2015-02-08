@@ -7,7 +7,6 @@ object Main extends App{
 
     implicit val timeout = Duration.Inf
 
-
     val x = FInt(1)
     val y = FDouble(2.1)
 
@@ -17,7 +16,8 @@ object Main extends App{
     aprintln(a)
     aprintln(b)
     aprintln(a + a)
-    aprintln(a / 2)
+//    aprintln(a + 2)
+    aprintln(2 / a)
     aprintln(y == FBigDecimal(2.13))
 
     val tmp:Fractional[Double] = implicitly

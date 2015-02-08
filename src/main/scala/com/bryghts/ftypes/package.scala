@@ -46,31 +46,40 @@ package object ftypes {
     implicit val (implicitBigDecimalDouble, implicitDoubleBigDecimal)  = FDefinitions(FBigDecimal, FDouble)(BigDecimal(_))
     implicit val (implicitBigDecimalBigInt, implicitBigIntBigDecimal)  = FDefinitions(FBigDecimal, FBigInt)(BigDecimal(_))
 
-    implicit object FByte extends FAnyCompanion[Byte, FByte]
+    implicit val implicitByte = IDefinitions(FByte)
+    implicit object FByte extends FNumberCompanion[Byte, FByte]
     case class FByte(future: Future[Byte]) extends FINumber[Byte, FByte](FByte)
 
-    implicit object FChar extends FAnyCompanion[Char, FChar]
+    implicit val implicitChar = IDefinitions(FChar)
+    implicit object FChar extends FNumberCompanion[Char, FChar]
     case class FChar(future: Future[Char]) extends FINumber[Char, FChar](FChar)
 
-    implicit object FShort extends FAnyCompanion[Short, FShort]
+    implicit val implicitShort = IDefinitions(FShort)
+    implicit object FShort extends FNumberCompanion[Short, FShort]
     case class FShort(future: Future[Short]) extends FINumber[Short, FShort](FShort)
 
-    implicit object FInt extends FAnyCompanion[Int, FInt]
+    implicit val implicitInt = IDefinitions(FInt)
+    implicit object FInt extends FNumberCompanion[Int, FInt]
     case class FInt(future: Future[Int]) extends FINumber[Int, FInt](FInt)
 
-    implicit object FLong extends FAnyCompanion[Long, FLong]
+    implicit val implicitLong = IDefinitions(FLong)
+    implicit object FLong extends FNumberCompanion[Long, FLong]
     case class FLong(future: Future[Long]) extends FINumber[Long, FLong](FLong)
 
-    implicit object FFloat extends FAnyCompanion[Float, FFloat]
+    implicit val implicitFloat = FDefinitions(FFloat)
+    implicit object FFloat extends FNumberCompanion[Float, FFloat]
     case class FFloat(future: Future[Float]) extends FFNumber[Float, FFloat](FFloat)
 
-    implicit object FDouble extends FAnyCompanion[Double, FDouble]
+    implicit val implicitDouble = FDefinitions(FDouble)
+    implicit object FDouble extends FNumberCompanion[Double, FDouble]
     case class FDouble(future: Future[Double]) extends FFNumber[Double, FDouble](FDouble)
 
-    implicit object FBigInt extends FAnyCompanion[BigInt, FBigInt]
+    implicit val implicitBigInt = IDefinitions(FBigInt)
+    implicit object FBigInt extends FNumberCompanion[BigInt, FBigInt]
     case class FBigInt(future: Future[BigInt]) extends FINumber[BigInt, FBigInt](FBigInt)
 
-    implicit object FBigDecimal extends FAnyCompanion[BigDecimal, FBigDecimal]
+    implicit val implicitBigDecimal = FDefinitions(FBigDecimal)
+    implicit object FBigDecimal extends FNumberCompanion[BigDecimal, FBigDecimal]
     case class FBigDecimal(future: Future[BigDecimal]) extends FFNumber[BigDecimal, FBigDecimal](FBigDecimal)
 
 }
