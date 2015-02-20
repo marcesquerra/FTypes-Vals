@@ -1,6 +1,7 @@
 import com.bryghts.ftypes._
+import com.bryghts.ftypes.statements._
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.{Awaitable, Future}
+import scala.concurrent.{Awaitable, Future, blocking}
 import scala.concurrent.duration.Duration
 
 object Main extends App{
@@ -24,8 +25,48 @@ object Main extends App{
 
     tmp.div(3, 3)
 
+    AwaitResult {
+        var c = 0
+
+        While(c < 10) {
+            println(c)
+            c += 1
+        }
+
+        If(c < 10) {println("yeah")} Else {println("nope")}
+
+    }
+
     def aprintln[T](in: Awaitable[T])(implicit timeout: Duration):Unit = {
         println( AwaitResult(in) )
+    }
+
+    AwaitResult {
+        var d = 0
+
+        Do {
+
+            d += 1
+            println(d)
+        } While ({
+            Future{
+                blocking{
+                    Thread.sleep(200)
+                }
+                d < 10
+            }
+        })
+
+        val tmp = a Match {
+            case 1 =>
+                println("one")
+                7
+            case other =>
+                println("other")
+                9
+        }
+        aprintln(tmp)
+        tmp
     }
 
 }
