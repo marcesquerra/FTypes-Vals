@@ -1,6 +1,8 @@
 package com.bryghts
 
-import scala.concurrent.Future
+import sun.reflect.generics.reflectiveObjects.NotImplementedException
+
+import scala.concurrent.{ExecutionContext, Future}
 
 /**
  * Created by Marc Esquerrà on 29/01/2015.
@@ -92,48 +94,89 @@ package object ftypes {
     implicit val implicitByte = IDefinitions(FByte)
     implicit val mimplicitByte = MIDefinitions(FByte)
     implicit object FByte extends FNumberCompanion[Byte, FByte]
+    implicit def FByteScalaNumeric(implicit ec: ExecutionContext): ScalaNumericForFNumbers[Byte, FByte] = new ScalaNumericForFNumbers[Byte, FByte](implicitByte)
     case class FByte(future: Future[Byte]) extends FINumber[Byte, FByte](FByte)
 
     implicit val implicitChar = IDefinitions(FChar)
     implicit val mimplicitChar = MIDefinitions(FChar)
     implicit object FChar extends FNumberCompanion[Char, FChar]
+    implicit def FCharScalaNumeric(implicit ec: ExecutionContext): ScalaNumericForFNumbers[Char, FChar] = new ScalaNumericForFNumbers[Char, FChar](implicitChar)
     case class FChar(future: Future[Char]) extends FINumber[Char, FChar](FChar)
 
     implicit val implicitShort = IDefinitions(FShort)
     implicit val mimplicitShort = MIDefinitions(FShort)
     implicit object FShort extends FNumberCompanion[Short, FShort]
+    implicit def FShortScalaNumeric(implicit ec: ExecutionContext): ScalaNumericForFNumbers[Short, FShort] = new ScalaNumericForFNumbers[Short, FShort](implicitShort)
     case class FShort(future: Future[Short]) extends FINumber[Short, FShort](FShort)
 
     implicit val implicitInt = IDefinitions(FInt)
     implicit val mimplicitInt = MIDefinitions(FInt)
     implicit object FInt extends FNumberCompanion[Int, FInt]
+    implicit def FIntScalaNumeric(implicit ec: ExecutionContext): ScalaNumericForFNumbers[Int, FInt] = new ScalaNumericForFNumbers[Int, FInt](implicitInt)
     case class FInt(future: Future[Int]) extends FINumber[Int, FInt](FInt)
 
     implicit val implicitLong = IDefinitions(FLong)
     implicit val mimplicitLong = MIDefinitions(FLong)
     implicit object FLong extends FNumberCompanion[Long, FLong]
+    implicit def FLongScalaNumeric(implicit ec: ExecutionContext): ScalaNumericForFNumbers[Long, FLong] = new ScalaNumericForFNumbers[Long, FLong](implicitLong)
     case class FLong(future: Future[Long]) extends FINumber[Long, FLong](FLong)
 
     implicit val implicitFloat = FDefinitions(FFloat)
     implicit val mimplicitFloat = MFDefinitions(FFloat)
     implicit object FFloat extends FNumberCompanion[Float, FFloat]
+    implicit def FFloatScalaNumeric(implicit ec: ExecutionContext): ScalaNumericForFNumbers[Float, FFloat] = new ScalaNumericForFNumbers[Float, FFloat](implicitFloat)
     case class FFloat(future: Future[Float]) extends FFNumber[Float, FFloat](FFloat)
 
     implicit val implicitDouble = FDefinitions(FDouble)
     implicit val mimplicitDouble = MFDefinitions(FDouble)
     implicit object FDouble extends FNumberCompanion[Double, FDouble]
+    implicit def FDoubleScalaNumeric(implicit ec: ExecutionContext): ScalaNumericForFNumbers[Double, FDouble] = new ScalaNumericForFNumbers[Double, FDouble](implicitDouble)
     case class FDouble(future: Future[Double]) extends FFNumber[Double, FDouble](FDouble)
 
     implicit val implicitBigInt = IDefinitions(FBigInt)
     implicit val mimplicitBigInt = MIDefinitions(FBigInt)
     implicit object FBigInt extends FNumberCompanion[BigInt, FBigInt]
+    implicit def FBigIntScalaNumeric(implicit ec: ExecutionContext): ScalaNumericForFNumbers[BigInt, FBigInt] = new ScalaNumericForFNumbers[BigInt, FBigInt](implicitBigInt)
     case class FBigInt(future: Future[BigInt]) extends FINumber[BigInt, FBigInt](FBigInt)
 
     implicit val implicitBigDecimal = FDefinitions(FBigDecimal)
     implicit val mimplicitBigDecimal = MFDefinitions(FBigDecimal)
     implicit object FBigDecimal extends FNumberCompanion[BigDecimal, FBigDecimal]
+    implicit def FBigDecimalScalaNumeric(implicit ec: ExecutionContext): ScalaNumericForFNumbers[BigDecimal, FBigDecimal] = new ScalaNumericForFNumbers[BigDecimal, FBigDecimal](implicitBigDecimal)
     case class FBigDecimal(future: Future[BigDecimal]) extends FFNumber[BigDecimal, FBigDecimal](FBigDecimal)
 
+    class ScalaNumericForFNumbers[T, FT <: FNumber[T, FT]](num: FNumeric[FT, FT, FT])(implicit ec: ExecutionContext, snum: scala.Numeric[T]) extends scala.Numeric[FT] {
+
+        override def zero: FT = num.zero
+
+        override def one: FT = num.one
+
+        override def abs(x: FT): FT = x.abs
+
+        override def plus(x: FT, y: FT): FT = num.plus(x, y)
+
+        override def times(x: FT, y: FT): FT = num.times(x, y)
+
+        override def minus(x: FT, y: FT): FT = num.minus(x, y)
+
+        private def notImplemented = throw new NotImplementedException()
+
+        override def toDouble(x: FT): Double = notImplemented
+
+        override def toFloat(x: FT): Float = notImplemented
+
+        override def toInt(x: FT): Int = notImplemented
+
+        override def negate(x: FT): FT = notImplemented
+
+        override def fromInt(x: Int): FT = notImplemented
+
+        override def toLong(x: FT): Long = notImplemented
+
+        override def compare(x: FT, y: FT): Int = notImplemented
+
+
+    }
 }
 
 

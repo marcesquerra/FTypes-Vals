@@ -3,6 +3,9 @@ package com.bryghts.ftypes.components
 
 trait Numeric[A, B, R] {
 
+    def zero: R
+    def one: R
+
     def plus  (a: A, b: B): R
     def minus (x: A, y: B): R
     def times (x: A, y: B): R
@@ -54,6 +57,9 @@ trait NumericForScalaNumeric[A, B, R] extends Numeric[A, B, R] {
 
     protected val fromA: A => R
     protected val fromB: B => R
+
+    def zero = num.zero
+    def one  = num.one
 
     def plus    (a: A, b: B): R   = num.plus    (fromA(a), fromB(b))
     def minus   (a: A, b: B): R   = num.minus   (fromA(a), fromB(b))

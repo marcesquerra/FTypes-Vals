@@ -5,6 +5,9 @@ import scala.concurrent.ExecutionContext
 
 trait FNumeric[FA <: FNumber[_, FA], FB, FR] {
 
+    def zero: FR
+    def one: FR
+
     def plus   (fa: FA, fb: FB)(implicit ec: ExecutionContext): FR
     def minus  (fa: FA, fb: FB)(implicit ec: ExecutionContext): FR
     def times  (fa: FA, fb: FB)(implicit ec: ExecutionContext): FR
@@ -46,6 +49,9 @@ class FNumericForBaseNumeric[A, FA <: FNumber[A, FA], B, FB <: FNumber[B, FB], R
     protected def op[RR, FRR <: FNumber[RR, FRR]](fa: FA, fb: FB, crr: FNumberCompanion[RR, FRR] = cr)(f: (A, B) => RR)(implicit executionContext: ExecutionContext): FRR =
         crr(fa.future.flatMap(a => fb.future.map(b => f(a, b))))
 
+    def zero = cr(BaseNumAB.zero)
+    def one  = cr(BaseNumAB.one)
+
     def plus(fa: FA, fb: FB)(implicit executionContext: ExecutionContext): FR =
         op(fa, fb)(BaseNumAB.plus)
 
@@ -85,6 +91,9 @@ class FNumericMixedForBaseNumeric[A, FA <: FNumber[A, FA], B, R, FR <: FNumber[R
 
     protected def op[RR, FRR <: FNumber[RR, FRR]](fa: FA, b: B, crr: FNumberCompanion[RR, FRR] = cr)(f: (A, B) => RR)(implicit executionContext: ExecutionContext): FRR =
         crr(fa.future.map(a => f(a, b)))
+
+    def zero = cr(BaseNumAB.zero)
+    def one  = cr(BaseNumAB.one)
 
     def plus(fa: FA, b: B)(implicit executionContext: ExecutionContext): FR =
         op(fa, b)(BaseNumAB.plus)

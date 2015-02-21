@@ -9,17 +9,20 @@ object Main extends App{
 
     implicit val timeout = Duration.Inf
 
-    val x = FInt(1)
-    val z = FInt(5)
-    val w = FInt(2)
-    val y = FDouble(2.1)
+    val x   = FInt(1)
+    val z   = FInt(5)
+    val w   = FInt(2)
+    val y   = FDouble(2.1)
     val zzz = Future(3) + 8
 
-    val a = x + y
-    val b = y + x
+    fprintln(List(x, z, w).sum)
+
+    val a   = x + y
+    val b   = y + x
 
     fprintln(z % w)
     fprintln(a)
+
     fprintln(b)
     fprintln(a + a)
     fprintln("----")
@@ -32,17 +35,19 @@ object Main extends App{
 
     tmp.div(3, 3)
 
+    var c = 0
+
     AwaitResult {
-        var c = 0
 
         While(c < 10) {
             fprintln(c.toString)
             c += 1
         }
 
-        If(c < 10) {fprintln("yeah")} Else {fprintln("nope")}
 
     }
+
+    If(c < 10) {fprintln("yeah")} Else {fprintln("nope")}
 
     AwaitResult {
         var d = 0
