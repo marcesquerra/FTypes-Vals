@@ -21,7 +21,7 @@ trait FNumeric[FA <: FNumber[_, FA], FB, FR] {
 
 }
 
-trait FIntegralNumeric[FA <: FNumber[_, FA], FB, FR] {
+trait FIntegralNumeric[FA <: FNumber[_, FA], FB, FR] extends FNumeric[FA, FB, FR]{
     def rem     (a: FA, b: FB)(implicit ec: ExecutionContext): FR
 }
 

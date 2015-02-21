@@ -13,6 +13,7 @@ object Main extends App{
     val z = FInt(5)
     val w = FInt(2)
     val y = FDouble(2.1)
+    val zzz = Future(3) + 8
 
     val a = x + y
     val b = y + x
