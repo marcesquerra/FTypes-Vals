@@ -47,7 +47,7 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">FNumeric</span><span class="tparams">[<span name="FA">FA &lt;: <a href="../FNumber.html" class="extype" name="com.bryghts.ftypes.FNumber">FNumber</a>[_, <span class="extype" name="com.bryghts.ftypes.components.FNumeric.FA">FA</span>]</span>, <span name="FB">FB &lt;: <a href="../FNumber.html" class="extype" name="com.bryghts.ftypes.FNumber">FNumber</a>[_, <span class="extype" name="com.bryghts.ftypes.components.FNumeric.FB">FB</span>]</span>, <span name="FR">FR &lt;: <a href="../FNumber.html" class="extype" name="com.bryghts.ftypes.FNumber">FNumber</a>[_, <span class="extype" name="com.bryghts.ftypes.components.FNumeric.FR">FR</span>]</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <span class="name">FNumeric</span><span class="tparams">[<span name="FA">FA &lt;: <a href="../FNumber.html" class="extype" name="com.bryghts.ftypes.FNumber">FNumber</a>[_, <span class="extype" name="com.bryghts.ftypes.components.FNumeric.FA">FA</span>]</span>, <span name="FB">FB</span>, <span name="FR">FR</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
       
@@ -56,7 +56,7 @@
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
             <span class="toggle">Known Subclasses</span>
-            <div class="subClasses hiddenContent"><a href="FNumericForBaseIntegralNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumericForBaseIntegralNumeric">FNumericForBaseIntegralNumeric</a>, <a href="FNumericForBaseNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumericForBaseNumeric">FNumericForBaseNumeric</a></div>
+            <div class="subClasses hiddenContent"><a href="FNumericForBaseIntegralNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumericForBaseIntegralNumeric">FNumericForBaseIntegralNumeric</a>, <a href="FNumericForBaseNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumericForBaseNumeric">FNumericForBaseNumeric</a>, <a href="FNumericMixedForBaseIntegralNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumericMixedForBaseIntegralNumeric">FNumericMixedForBaseIntegralNumeric</a>, <a href="FNumericMixedForBaseNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumericMixedForBaseNumeric">FNumericMixedForBaseNumeric</a></div>
           </div></div>
         
 
@@ -133,7 +133,7 @@
     </span>
       
     </li><li name="com.bryghts.ftypes.components.FNumeric#max" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="max(x:FA,y:FB)(implicitec:scala.concurrent.ExecutionContext):FR"></a>
+      <a id="max(fx:FA,fy:FB)(implicitec:scala.concurrent.ExecutionContext):FR"></a>
       <a id="max(FA,FB)(ExecutionContext):FR"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -141,16 +141,16 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">max</span><span class="params">(<span name="x">x: <span class="extype" name="com.bryghts.ftypes.components.FNumeric.FA">FA</span></span>, <span name="y">y: <span class="extype" name="com.bryghts.ftypes.components.FNumeric.FB">FB</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="com.bryghts.ftypes.components.FNumeric.FR">FR</span></span>
+        <span class="name">max</span><span class="params">(<span name="fx">fx: <span class="extype" name="com.bryghts.ftypes.components.FNumeric.FA">FA</span></span>, <span name="fy">fy: <span class="extype" name="com.bryghts.ftypes.components.FNumeric.FB">FB</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="com.bryghts.ftypes.components.FNumeric.FR">FR</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.bryghts.ftypes.components.FNumeric@max(x:FA,y:FB)(implicitec:scala.concurrent.ExecutionContext):FR" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.bryghts.ftypes.components.FNumeric@max(fx:FA,fy:FB)(implicitec:scala.concurrent.ExecutionContext):FR" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       
     </li><li name="com.bryghts.ftypes.components.FNumeric#min" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="min(x:FA,y:FB)(implicitec:scala.concurrent.ExecutionContext):FR"></a>
+      <a id="min(fx:FA,fy:FB)(implicitec:scala.concurrent.ExecutionContext):FR"></a>
       <a id="min(FA,FB)(ExecutionContext):FR"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -158,10 +158,10 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">min</span><span class="params">(<span name="x">x: <span class="extype" name="com.bryghts.ftypes.components.FNumeric.FA">FA</span></span>, <span name="y">y: <span class="extype" name="com.bryghts.ftypes.components.FNumeric.FB">FB</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="com.bryghts.ftypes.components.FNumeric.FR">FR</span></span>
+        <span class="name">min</span><span class="params">(<span name="fx">fx: <span class="extype" name="com.bryghts.ftypes.components.FNumeric.FA">FA</span></span>, <span name="fy">fy: <span class="extype" name="com.bryghts.ftypes.components.FNumeric.FB">FB</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="com.bryghts.ftypes.components.FNumeric.FR">FR</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.bryghts.ftypes.components.FNumeric@min(x:FA,y:FB)(implicitec:scala.concurrent.ExecutionContext):FR" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.bryghts.ftypes.components.FNumeric@min(fx:FA,fy:FB)(implicitec:scala.concurrent.ExecutionContext):FR" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
