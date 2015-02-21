@@ -23,7 +23,7 @@ object Main extends App{
     fprintln(a + a)
     fprintln("----")
     fprintln(a max x)
-//    fprintln(a + 2)
+    fprintln(a + 2)
     fprintln(2 / a)
     fprintln(y == FBigDecimal(2.13))
 

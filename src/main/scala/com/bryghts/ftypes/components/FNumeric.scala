@@ -2,14 +2,13 @@ package com.bryghts.ftypes
 package components
 
 import scala.concurrent.ExecutionContext
-import statements._
 
-trait FNumeric[FA <: FNumber[_, FA], FB <: FNumber[_, FB], FR <: FNumber[_, FR]] {
+trait FNumeric[FA <: FNumber[_, FA], FB, FR] {
 
-    def plus (fa: FA, fb: FB)(implicit ec: ExecutionContext): FR
-    def minus(fa: FA, fb: FB)(implicit ec: ExecutionContext): FR
-    def times(fa: FA, fb: FB)(implicit ec: ExecutionContext): FR
-    def div  (fa: FA, fb: FB)(implicit ec: ExecutionContext): FR
+    def plus   (fa: FA, fb: FB)(implicit ec: ExecutionContext): FR
+    def minus  (fa: FA, fb: FB)(implicit ec: ExecutionContext): FR
+    def times  (fa: FA, fb: FB)(implicit ec: ExecutionContext): FR
+    def div    (fa: FA, fb: FB)(implicit ec: ExecutionContext): FR
 
     def compare(fx: FA, fy: FB)(implicit ec: ExecutionContext): FInt
     def lteq   (fx: FA, fy: FB)(implicit ec: ExecutionContext): FBoolean = compare(fx, fy).future.map(_ <= 0)
@@ -17,12 +16,12 @@ trait FNumeric[FA <: FNumber[_, FA], FB <: FNumber[_, FB], FR <: FNumber[_, FR]]
     def lt     (fx: FA, fy: FB)(implicit ec: ExecutionContext): FBoolean = compare(fx, fy).future.map(_ <  0)
     def gt     (fx: FA, fy: FB)(implicit ec: ExecutionContext): FBoolean = compare(fx, fy).future.map(_ <  0)
 
-    def max    (x: FA, y: FB)(implicit ec: ExecutionContext): FR
-    def min    (x: FA, y: FB)(implicit ec: ExecutionContext): FR
+    def max    (fx: FA, fy: FB)(implicit ec: ExecutionContext): FR
+    def min    (fx: FA, fy: FB)(implicit ec: ExecutionContext): FR
 
 }
 
-trait FIntegralNumeric[FA <: FNumber[_, FA], FB <: FNumber[_, FB], FR <: FNumber[_, FR]] {
+trait FIntegralNumeric[FA <: FNumber[_, FA], FB, FR] {
     def rem     (a: FA, b: FB)(implicit ec: ExecutionContext): FR
 }
 
@@ -33,6 +32,12 @@ object FNumeric {
 
     def apply[A, FA <: FNumber[A, FA], B, FB <: FNumber[B, FB], R, FR <: FNumber[R, FR]](cr: FNumberCompanion[R, FR], BaseNumAB: FractionalNumeric[A, B, R]):FNumeric[FA, FB, FR] =
         new FNumericForBaseNumeric[A, FA, B, FB, R, FR](cr, BaseNumAB)
+
+    def mixed[A, FA <: FNumber[A, FA], B, R, FR <: FNumber[R, FR]](cr: FNumberCompanion[R, FR], BaseNumAB: IntegralNumeric[A, B, R]):FIntegralNumeric[FA, B, FR] =
+        new FNumericMixedForBaseIntegralNumeric[A, FA, B, R, FR](cr, BaseNumAB)
+
+    def mixed[A, FA <: FNumber[A, FA], B, R, FR <: FNumber[R, FR]](cr: FNumberCompanion[R, FR], BaseNumAB: FractionalNumeric[A, B, R]):FNumeric[FA, B, FR] =
+        new FNumericMixedForBaseNumeric[A, FA, B, R, FR](cr, BaseNumAB)
 }
 
 class FNumericForBaseNumeric[A, FA <: FNumber[A, FA], B, FB <: FNumber[B, FB], R, FR <: FNumber[R, FR]]
@@ -65,11 +70,51 @@ class FNumericForBaseNumeric[A, FA <: FNumber[A, FA], B, FB <: FNumber[B, FB], R
 }
 
 class FNumericForBaseIntegralNumeric[A, FA <: FNumber[A, FA], B, FB <: FNumber[B, FB], R, FR <: FNumber[R, FR]]
-        (cr: FNumberCompanion[R, FR], BaseNumAB: IntegralNumeric[A, B, R])                                     extends FNumericForBaseNumeric[A,FA, B, FB, R, FR](cr, BaseNumAB)
-                                                                                                                  with FIntegralNumeric[FA, FB, FR]
+          (cr: FNumberCompanion[R, FR], BaseNumAB: IntegralNumeric[A, B, R])                                     extends FNumericForBaseNumeric[A,FA, B, FB, R, FR](cr, BaseNumAB)
+                                                                                                                    with FIntegralNumeric[FA, FB, FR]
 {
 
     def rem    (fa: FA, fb: FB)(implicit ec: ExecutionContext): FR =
         op(fa, fb)(BaseNumAB.rem)
+
+}
+
+
+class FNumericMixedForBaseNumeric[A, FA <: FNumber[A, FA], B, R, FR <: FNumber[R, FR]]
+          (cr: FNumberCompanion[R, FR], BaseNumAB: Numeric[A, B, R])                                     extends FNumeric[FA, B, FR] {
+
+    protected def op[RR, FRR <: FNumber[RR, FRR]](fa: FA, b: B, crr: FNumberCompanion[RR, FRR] = cr)(f: (A, B) => RR)(implicit executionContext: ExecutionContext): FRR =
+        crr(fa.future.map(a => f(a, b)))
+
+    def plus(fa: FA, b: B)(implicit executionContext: ExecutionContext): FR =
+        op(fa, b)(BaseNumAB.plus)
+
+    def minus(fa: FA, b: B)(implicit executionContext: ExecutionContext): FR =
+        op(fa, b)(BaseNumAB.minus)
+
+    def times(fa: FA, b: B)(implicit executionContext: ExecutionContext): FR =
+        op(fa, b)(BaseNumAB.times)
+
+    def div(fa: FA, b: B)(implicit executionContext: ExecutionContext): FR =
+        op(fa, b)(BaseNumAB.div)
+
+    def compare(fa: FA, b: B)(implicit executionContext: ExecutionContext): FInt =
+        op(fa, b, FInt)(BaseNumAB.compare)
+
+    def max    (fa: FA, b: B)(implicit ec: ExecutionContext): FR =
+        op(fa, b)(BaseNumAB.max)
+
+    def min    (fa: FA, b: B)(implicit ec: ExecutionContext): FR =
+        op(fa, b)(BaseNumAB.min)
+
+}
+
+class FNumericMixedForBaseIntegralNumeric[A, FA <: FNumber[A, FA], B, R, FR <: FNumber[R, FR]]
+           (cr: FNumberCompanion[R, FR], BaseNumAB: IntegralNumeric[A, B, R])                                     extends FNumericMixedForBaseNumeric[A,FA, B, R, FR](cr, BaseNumAB)
+                                                                                                                     with FIntegralNumeric[FA, B, FR]
+{
+
+    def rem    (fa: FA, b: B)(implicit ec: ExecutionContext): FR =
+        op(fa, b)(BaseNumAB.rem)
 
 }
