@@ -35,6 +35,9 @@ object Main extends App{
 
     tmp.div(3, 3)
 
+    val other: FBoolean = true && a > 3
+    val back: FBoolean = a > 3 && true
+
     var c = 0
 
     AwaitResult {

@@ -20,15 +20,22 @@ case class FBoolean(future: Future[Boolean]) extends FAny[Boolean, FBoolean]
 
     protected val companion = FBoolean
 
-    def op(x: FBoolean, f: (Boolean, Boolean) => Boolean)(implicit ec: ExecutionContext) =
+    def op(x: FBoolean, f: (Boolean, Boolean) => Boolean)(implicit ec: ExecutionContext):FBoolean =
             FBoolean(future.flatMap(a => x.future.map(b => f(a, b))))
 
     def unary_!              (implicit ec: ExecutionContext): FBoolean = future.map(! _)
+
     def ||      (x: FBoolean)(implicit ec: ExecutionContext): FBoolean = op(x, _ || _)
     def &&      (x: FBoolean)(implicit ec: ExecutionContext): FBoolean = op(x, _ && _)
     def |       (x: FBoolean)(implicit ec: ExecutionContext): FBoolean = op(x, _ |  _)
     def &       (x: FBoolean)(implicit ec: ExecutionContext): FBoolean = op(x, _ &  _)
     def ^       (x: FBoolean)(implicit ec: ExecutionContext): FBoolean = op(x, _ ^  _)
+
+    def ||      (x:  Boolean)(implicit ec: ExecutionContext): FBoolean = op(x, _ || _)
+    def &&      (x:  Boolean)(implicit ec: ExecutionContext): FBoolean = op(x, _ && _)
+    def |       (x:  Boolean)(implicit ec: ExecutionContext): FBoolean = op(x, _ |  _)
+    def &       (x:  Boolean)(implicit ec: ExecutionContext): FBoolean = op(x, _ &  _)
+    def ^       (x:  Boolean)(implicit ec: ExecutionContext): FBoolean = op(x, _ ^  _)
 
 }
 
