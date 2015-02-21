@@ -1,4 +1,5 @@
 import com.bryghts.ftypes._
+import com.bryghts.ftypes.helpers._
 import com.bryghts.ftypes.statements._
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{Awaitable, Future, blocking}
@@ -9,17 +10,22 @@ object Main extends App{
     implicit val timeout = Duration.Inf
 
     val x = FInt(1)
+    val z = FInt(5)
+    val w = FInt(2)
     val y = FDouble(2.1)
 
     val a = x + y
     val b = y + x
 
-    aprintln(a)
-    aprintln(b)
-    aprintln(a + a)
-//    aprintln(a + 2)
-    aprintln(2 / a)
-    aprintln(y == FBigDecimal(2.13))
+    fprintln(z % w)
+    fprintln(a)
+    fprintln(b)
+    fprintln(a + a)
+    fprintln("----")
+    fprintln(a max x)
+//    fprintln(a + 2)
+    fprintln(2 / a)
+    fprintln(y == FBigDecimal(2.13))
 
     val tmp:Fractional[Double] = implicitly
 
@@ -29,16 +35,12 @@ object Main extends App{
         var c = 0
 
         While(c < 10) {
-            println(c)
+            fprintln(c.toString)
             c += 1
         }
 
-        If(c < 10) {println("yeah")} Else {println("nope")}
+        If(c < 10) {fprintln("yeah")} Else {fprintln("nope")}
 
-    }
-
-    def aprintln[T](in: Awaitable[T])(implicit timeout: Duration):Unit = {
-        println( AwaitResult(in) )
     }
 
     AwaitResult {
@@ -47,7 +49,7 @@ object Main extends App{
         Do {
 
             d += 1
-            println(d)
+            fprintln(d.toString)
         } While ({
             Future{
                 blocking{
@@ -59,13 +61,13 @@ object Main extends App{
 
         val tmp = a Match {
             case 1 =>
-                println("one")
+                fprintln("one")
                 7
             case other =>
-                println("other")
+                fprintln("other")
                 9
         }
-        aprintln(tmp)
+        fprintln(tmp)
         tmp
     }
 

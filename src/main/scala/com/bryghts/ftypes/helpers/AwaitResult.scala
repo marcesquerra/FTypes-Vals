@@ -1,7 +1,7 @@
-package com.bryghts.ftypes
+package com.bryghts.ftypes.helpers
 
-import scala.concurrent.{Await, Awaitable}
 import scala.concurrent.duration.Duration
+import scala.concurrent.{Await, Awaitable}
 
 /**
  * Created by Marc Esquerrà on 22/01/2015.
