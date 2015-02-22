@@ -18,15 +18,17 @@ site.settings
 
 ghpages.settings
 
-git.gitRemoteRepo := "git@github.com:marcesquerra/FTypes.git"
-
 site.includeScaladoc()
 
-organization := "com.bryghts.ftypes"
+val nameLiteral = "FTypes"
+
+organization := s"com.bryghts.${nameLiteral.toLowerCase}"
 
 scalaVersion := "2.10.3"
 
-name := "FTypes"
+git.gitRemoteRepo := s"git@github.com:marcesquerra/$nameLiteral.git"
+
+name := nameLiteral
 
 scalaVersion := "2.11.5"
 
@@ -52,8 +54,8 @@ pomExtra := (
             </license>
         </licenses>
         <scm>
-            <url>git@github.com:marcesquerra/KissJson.git</url>
-            <connection>scm:git:git@github.com:marcesquerra/KissJson.git</connection>
+            <url>git@github.com:marcesquerra/{nameLiteral}.git</url>
+            <connection>scm:git:git@github.com:marcesquerra/{nameLiteral}.git</connection>
         </scm>
         <developers>
             <developer>
