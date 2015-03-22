@@ -1,12 +1,13 @@
 package com.bryghts.ftypes
 package components
 
+import com.bryghts.numerics.{PolyNumeric, FractionalPolyNumeric, IntegralPolyNumeric}
+
 import scala.concurrent.ExecutionContext
 
-trait FNumeric[FA <: FNumber[_, FA], FB, FR] {
+trait FNumeric[FA, FB] {
 
-    def zero: FR
-    def one: FR
+    type FR
 
     def plus   (fa: FA, fb: FB)(implicit ec: ExecutionContext): FR
     def minus  (fa: FA, fb: FB)(implicit ec: ExecutionContext): FR
@@ -24,106 +25,126 @@ trait FNumeric[FA <: FNumber[_, FA], FB, FR] {
 
 }
 
-trait FIntegralNumeric[FA <: FNumber[_, FA], FB, FR] extends FNumeric[FA, FB, FR]{
+trait FIntegralNumeric[FA, FB] extends FNumeric[FA, FB]{
     def rem     (a: FA, b: FB)(implicit ec: ExecutionContext): FR
 }
 
-object FNumeric {
-
-    def apply[A, FA <: FNumber[A, FA], B, FB <: FNumber[B, FB], R, FR <: FNumber[R, FR]](cr: FNumberCompanion[R, FR], BaseNumAB: IntegralNumeric[A, B, R]):FIntegralNumeric[FA, FB, FR] =
-        new FNumericForBaseIntegralNumeric[A, FA, B, FB, R, FR](cr, BaseNumAB)
-
-    def apply[A, FA <: FNumber[A, FA], B, FB <: FNumber[B, FB], R, FR <: FNumber[R, FR]](cr: FNumberCompanion[R, FR], BaseNumAB: FractionalNumeric[A, B, R]):FNumeric[FA, FB, FR] =
-        new FNumericForBaseNumeric[A, FA, B, FB, R, FR](cr, BaseNumAB)
-
-    def mixed[A, FA <: FNumber[A, FA], B, R, FR <: FNumber[R, FR]](cr: FNumberCompanion[R, FR], BaseNumAB: IntegralNumeric[A, B, R]):FIntegralNumeric[FA, B, FR] =
-        new FNumericMixedForBaseIntegralNumeric[A, FA, B, R, FR](cr, BaseNumAB)
-
-    def mixed[A, FA <: FNumber[A, FA], B, R, FR <: FNumber[R, FR]](cr: FNumberCompanion[R, FR], BaseNumAB: FractionalNumeric[A, B, R]):FNumeric[FA, B, FR] =
-        new FNumericMixedForBaseNumeric[A, FA, B, R, FR](cr, BaseNumAB)
+trait FFractionalNumeric[FA, FB] extends FNumeric[FA, FB]{
 }
 
-class FNumericForBaseNumeric[A, FA <: FNumber[A, FA], B, FB <: FNumber[B, FB], R, FR <: FNumber[R, FR]]
-          (cr: FNumberCompanion[R, FR], BaseNumAB: Numeric[A, B, R])                                     extends FNumeric[FA, FB, FR] {
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    protected def op[RR, FRR <: FNumber[RR, FRR]](fa: FA, fb: FB, crr: FNumberCompanion[RR, FRR] = cr)(f: (A, B) => RR)(implicit executionContext: ExecutionContext): FRR =
-        crr(fa.future.flatMap(a => fb.future.map(b => f(a, b))))
+abstract class FNumericForBaseNumeric[A, FA <: FNumber[A, FA], B, FB <: FNumber[B, FB], R]
+        (protected val num: PolyNumeric[A, B, R])                                     extends FNumeric[FA, FB] {
 
-    def zero = cr(BaseNumAB.zero)
-    def one  = cr(BaseNumAB.one)
+    protected val builder: FBuilder[R, FR]
+
+    protected def op(fa: FA, fb: FB)(f: (A, B) => R)(implicit executionContext: ExecutionContext): FR =
+        builder(for {
+            a <- fa.future
+            b <- fb.future
+        } yield f(a, b))
+
+    protected def iop(fa: FA, fb: FB)(f: (A, B) => Int)(implicit executionContext: ExecutionContext): FInt =
+        fa.future.flatMap(a => fb.future.map(b => f(a, b)))
+
 
     def plus(fa: FA, fb: FB)(implicit executionContext: ExecutionContext): FR =
-        op(fa, fb)(BaseNumAB.plus)
+        op(fa, fb)(num.plus)
 
     def minus(fa: FA, fb: FB)(implicit executionContext: ExecutionContext): FR =
-        op(fa, fb)(BaseNumAB.minus)
+        op(fa, fb)(num.minus)
 
     def times(fa: FA, fb: FB)(implicit executionContext: ExecutionContext): FR =
-        op(fa, fb)(BaseNumAB.times)
+        op(fa, fb)(num.times)
 
     def div(fa: FA, fb: FB)(implicit executionContext: ExecutionContext): FR =
-        op(fa, fb)(BaseNumAB.div)
+        op(fa, fb)(num.div)
 
     def compare(fa: FA, fb: FB)(implicit executionContext: ExecutionContext): FInt =
-        op(fa, fb, FInt)(BaseNumAB.compare)
+        iop(fa, fb)(num.compare)
 
     def max    (fa: FA, fb: FB)(implicit ec: ExecutionContext): FR =
-        op(fa, fb)(BaseNumAB.max)
+        op(fa, fb)(num.max)
 
     def min    (fa: FA, fb: FB)(implicit ec: ExecutionContext): FR =
-        op(fa, fb)(BaseNumAB.min)
+        op(fa, fb)(num.min)
 
 }
 
-class FNumericForBaseIntegralNumeric[A, FA <: FNumber[A, FA], B, FB <: FNumber[B, FB], R, FR <: FNumber[R, FR]]
-          (cr: FNumberCompanion[R, FR], BaseNumAB: IntegralNumeric[A, B, R])                                     extends FNumericForBaseNumeric[A,FA, B, FB, R, FR](cr, BaseNumAB)
-                                                                                                                    with FIntegralNumeric[FA, FB, FR]
+abstract class FNumericForBaseIntegralNumeric[A, FA <: FNumber[A, FA], B, FB <: FNumber[B, FB], R]
+        (override protected val num: IntegralPolyNumeric[A, B, R])                                   extends FNumericForBaseNumeric[A,FA, B, FB, R](num)
+                                                                                                        with FIntegralNumeric[FA, FB]
 {
 
     def rem    (fa: FA, fb: FB)(implicit ec: ExecutionContext): FR =
-        op(fa, fb)(BaseNumAB.rem)
+        op(fa, fb)(num.rem)
+
+}
+
+abstract class FNumericForBaseFractionalNumeric[A, FA <: FNumber[A, FA], B, FB <: FNumber[B, FB], R]
+        (override protected val num: FractionalPolyNumeric[A, B, R])                                 extends FNumericForBaseNumeric[A,FA, B, FB, R](num)
+                                                                                                     with FFractionalNumeric[FA, FB]
+{
+
 
 }
 
 
-class FNumericMixedForBaseNumeric[A, FA <: FNumber[A, FA], B, R, FR <: FNumber[R, FR]]
-          (cr: FNumberCompanion[R, FR], BaseNumAB: Numeric[A, B, R])                                     extends FNumeric[FA, B, FR] {
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    protected def op[RR, FRR <: FNumber[RR, FRR]](fa: FA, b: B, crr: FNumberCompanion[RR, FRR] = cr)(f: (A, B) => RR)(implicit executionContext: ExecutionContext): FRR =
-        crr(fa.future.map(a => f(a, b)))
 
-    def zero = cr(BaseNumAB.zero)
-    def one  = cr(BaseNumAB.one)
+abstract class MixedFNumericForBaseNumeric[A, FA <: FNumber[A, FA], B, R]
+            (protected val num: PolyNumeric[A, B, R])                                     extends FNumeric[FA, B] {
+
+    protected val builder: FBuilder[R, FR]
+
+    protected def op(fa: FA, b: B)(f: (A, B) => R)(implicit executionContext: ExecutionContext): FR =
+        builder(for {
+            a <- fa.future
+        } yield f(a, b))
+
+    protected def iop(fa: FA, b: B)(f: (A, B) => Int)(implicit executionContext: ExecutionContext): FInt =
+        fa.future.map(a => f(a, b))
+
 
     def plus(fa: FA, b: B)(implicit executionContext: ExecutionContext): FR =
-        op(fa, b)(BaseNumAB.plus)
+        op(fa, b)(num.plus)
 
     def minus(fa: FA, b: B)(implicit executionContext: ExecutionContext): FR =
-        op(fa, b)(BaseNumAB.minus)
+        op(fa, b)(num.minus)
 
     def times(fa: FA, b: B)(implicit executionContext: ExecutionContext): FR =
-        op(fa, b)(BaseNumAB.times)
+        op(fa, b)(num.times)
 
     def div(fa: FA, b: B)(implicit executionContext: ExecutionContext): FR =
-        op(fa, b)(BaseNumAB.div)
+        op(fa, b)(num.div)
 
     def compare(fa: FA, b: B)(implicit executionContext: ExecutionContext): FInt =
-        op(fa, b, FInt)(BaseNumAB.compare)
+        iop(fa, b)(num.compare)
 
     def max    (fa: FA, b: B)(implicit ec: ExecutionContext): FR =
-        op(fa, b)(BaseNumAB.max)
+        op(fa, b)(num.max)
 
     def min    (fa: FA, b: B)(implicit ec: ExecutionContext): FR =
-        op(fa, b)(BaseNumAB.min)
+        op(fa, b)(num.min)
 
 }
 
-class FNumericMixedForBaseIntegralNumeric[A, FA <: FNumber[A, FA], B, R, FR <: FNumber[R, FR]]
-           (cr: FNumberCompanion[R, FR], BaseNumAB: IntegralNumeric[A, B, R])                                     extends FNumericMixedForBaseNumeric[A,FA, B, R, FR](cr, BaseNumAB)
-                                                                                                                     with FIntegralNumeric[FA, B, FR]
+abstract class MixedFNumericForBaseIntegralNumeric[A, FA <: FNumber[A, FA], B, R]
+        (override protected val num: IntegralPolyNumeric[A, B, R])                                   extends MixedFNumericForBaseNumeric[A,FA, B, R](num)
+                                                                                                        with FIntegralNumeric[FA, B]
 {
 
     def rem    (fa: FA, b: B)(implicit ec: ExecutionContext): FR =
-        op(fa, b)(BaseNumAB.rem)
+        op(fa, b)(num.rem)
+
+}
+
+abstract class MixedFNumericForBaseFractionalNumeric[A, FA <: FNumber[A, FA], B, R]
+        (override protected val num: FractionalPolyNumeric[A, B, R])                                 extends MixedFNumericForBaseNumeric[A,FA, B, R](num)
+                                                                                                        with FFractionalNumeric[FA, B]
+{
+
 
 }

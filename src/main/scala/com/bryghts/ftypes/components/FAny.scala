@@ -1,6 +1,6 @@
 package com.bryghts.ftypes.components
 
-import com.bryghts.ftypes.{FString, FInt, FBoolean}
+import com.bryghts.ftypes.{FInt, FString, FBoolean}
 
 import scala.concurrent.duration.Duration
 import scala.concurrent._
@@ -9,12 +9,12 @@ import scala.language.implicitConversions
 /**
  * Created by Marc Esquerrà on 22/01/2015.
  */
-trait FAny[T, S <: FAny[T, S]] extends Awaitable[T] {self =>
+trait FAny[A, FA <: FAny[A, FA]] extends Awaitable[A] {self =>
 
-    val future: Future[T]
-    protected val companion: FAnyCompanion[T, S]
+    val future: Future[A]
+    protected val builder: FBuilder[A, FA]
 
-    def toFString(implicit ec: ExecutionContext):FString = future.map(_.toString)
+    def toFString(implicit ec: ExecutionContext):FString = FString(future.map(_.toString))
 
     @throws[InterruptedException](classOf[InterruptedException])
     @throws[TimeoutException](classOf[TimeoutException])
@@ -35,14 +35,37 @@ trait FAny[T, S <: FAny[T, S]] extends Awaitable[T] {self =>
     def fhashCode(implicit ec: ExecutionContext):FInt = future.map(_.hashCode())
 }
 
-trait FAnyCompanion[T, U <: FAny[T, U]] extends Function1[Future[T], U]{
+trait FBuilder[A, FA] {
+    
+    def apply(a: A): FA
+    def apply(in: Future[A]): FA
 
-    def apply(in: Future[T]): U
+}
 
-    implicit def apply        (value: T)        : U =
+trait FBuilderFrom[A] {
+    type FType
+}
+
+trait FBuilderOf[FA] {
+    type Type
+    def apply(a: Type): FA
+    def apply(in: Future[Type]): FA
+}
+
+trait FAnyCompanion[A, FA <: FAny[A, FA]] extends FBuilder[A, FA]
+                                             with FBuilderFrom[A]
+                                             with FBuilderOf[FA]
+{
+
+    type FType = FA
+    type Type  = A
+
+    def apply(in: Future[A]): FA
+
+    implicit def apply        (value: A)        : FA =
         apply(Future.successful(value))
 
-    implicit def implicitApply(value: Future[T]): U =
+    implicit def implicitApply(value: Future[A]): FA =
         apply(value)
 
 }

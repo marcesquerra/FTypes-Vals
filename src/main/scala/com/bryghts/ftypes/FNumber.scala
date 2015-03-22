@@ -1,85 +1,76 @@
 package com.bryghts.ftypes
 
-import scala.concurrent.{ExecutionContext, Future}
-import scala.language.implicitConversions
 import components._
 
+import scala.concurrent.ExecutionContext
+
 /**
- * Created by Marc Esquerrà on 22/01/2015.
- */
-abstract class FNumber[T, S <: FNumber[T, S]] extends FAny[T, S] {
+* Created by Marc Esquerrà on 22/01/2015.
+*/
+abstract class FNumber[A, FA <: FNumber[A, FA]] extends FAny[A, FA] {
 
-    protected def fa = this.asInstanceOf[S]
+    protected def fa = this.asInstanceOf[FA]
 
-    protected val companion: FNumberCompanion[T, S]
+    private def op[R, FR <: FNumber[R, FR]](cr: FAnyCompanion[R, FR])(f: A => R)(implicit executionContext: ExecutionContext) =
+        cr.apply(future.map(f))
 
-    private def op[R, FR <: FNumber[R, FR]](cr: FNumberCompanion[R, FR])(f: T => R)(implicit executionContext: ExecutionContext):FR =
-        cr(future.map(f))
+    private def op(f: A => A)(implicit executionContext: ExecutionContext) =
+        builder.apply(future.map(f))
 
-    private def op(f: T => T)(implicit executionContext: ExecutionContext):S =
-        companion(future.map(f))
-
-    def +[FB, FR](fb: FB)(implicit num: FNumeric[S, FB, FR], ec: ExecutionContext):FR =
+    def +[FB](fb: FB)(implicit num: FNumeric[FA, FB], ec: ExecutionContext): num.type#FR =
         num.plus(fa, fb)
 
-    def -[FB, FR](fb: FB)(implicit num: FNumeric[S, FB, FR], ec: ExecutionContext):FR =
+    def -[FB](fb: FB)(implicit num: FNumeric[FA, FB], ec: ExecutionContext) =
         num.minus(fa, fb)
 
-    def *[FB, FR](fb: FB)(implicit num: FNumeric[S, FB, FR], ec: ExecutionContext):FR =
+    def *[FB, FR](fb: FB)(implicit num: FNumeric[FA, FB], ec: ExecutionContext) =
         num.times(fa, fb)
 
-    def /[FB, FR](fb: FB)(implicit num: FNumeric[S, FB, FR], ec: ExecutionContext):FR =
+    def /[FB, FR](fb: FB)(implicit num: FNumeric[FA, FB], ec: ExecutionContext) =
         num.div(fa, fb)
 
-    def unari_-(implicit num: scala.Numeric[T], executionContext: ExecutionContext):S =
-        op(num.negate)
+    def unari_-(implicit num: Numeric[A], executionContext: ExecutionContext) =
+        op(num.negate _)
 
-    def abs()(implicit num: scala.Numeric[T], executionContext: ExecutionContext):S =
-        op(num.abs)
+    def abs()(implicit num: Numeric[A], executionContext: ExecutionContext) =
+        op(num.abs _)
 
-    def signum()(implicit num: scala.Numeric[T], executionContext: ExecutionContext): FInt =
+    def signum()(implicit num: scala.Numeric[A], executionContext: ExecutionContext): FInt =
         op(FInt)(num.signum)
 
-    def <  [FB, FR](fb: FB)(implicit num: FNumeric[S, FB, FR], ec: ExecutionContext):FBoolean =
+    def <  [FB](fb: FB)(implicit num: FNumeric[FA, FB], ec: ExecutionContext):FBoolean =
         num.lt(fa, fb)
 
-    def >  [FB, FR](fb: FB)(implicit num: FNumeric[S, FB, FR], ec: ExecutionContext):FBoolean =
+    def >  [FB](fb: FB)(implicit num: FNumeric[FA, FB], ec: ExecutionContext):FBoolean =
         num.gt(fa, fb)
 
-    def <= [FB, FR](fb: FB)(implicit num: FNumeric[S, FB, FR], ec: ExecutionContext):FBoolean =
+    def <= [FB](fb: FB)(implicit num: FNumeric[FA, FB], ec: ExecutionContext):FBoolean =
         num.lteq(fa, fb)
 
-    def >= [FB, FR](fb: FB)(implicit num: FNumeric[S, FB, FR], ec: ExecutionContext):FBoolean =
+    def >= [FB](fb: FB)(implicit num: FNumeric[FA, FB], ec: ExecutionContext):FBoolean =
         num.gteq(fa, fb)
 
-    def max[FB, FR](fb: FB)(implicit num: FNumeric[S, FB, FR], ec: ExecutionContext):FR =
+    def max[FB](fb: FB)(implicit num: FNumeric[FA, FB], ec: ExecutionContext) =
         num.max(fa, fb)
 
-    def min[FB, FR](fb: FB)(implicit num: FNumeric[S, FB, FR], ec: ExecutionContext):FR =
+    def min[FB](fb: FB)(implicit num: FNumeric[FA, FB], ec: ExecutionContext) =
         num.min(fa, fb)
 }
 
-abstract class FFNumber[T, S <: FFNumber[T, S]](protected val companion: FNumberCompanion[T, S]) extends FNumber[T, S] {
+abstract class FFNumber[A, FA <: FFNumber[A, FA]](protected val builder: FAnyCompanion[A, FA]) extends FNumber[A, FA] {
 
 
 }
 
-abstract class FINumber[T, S <: FINumber[T, S]](protected val companion: FNumberCompanion[T, S]) extends FNumber[T, S] {
+abstract class FINumber[A, FA <: FINumber[A, FA]](protected val builder: FAnyCompanion[A, FA]) extends FNumber[A, FA] {
 
-        def %[FB, FR](fb: FB)(implicit num: FIntegralNumeric[S, FB, FR], ec: ExecutionContext):FR =
+        def %[FB](fb: FB)(implicit num: FIntegralNumeric[FA, FB], ec: ExecutionContext) =
             num.rem(fa, fb)
 
 }
 
-trait FNumberCompanion[T, U <: FNumber[T, U]] extends FAnyCompanion[T, U] with ((Future[T]) => U) {
+trait FNumberCompanion[A, FA <: FAny[A, FA]] extends FAnyCompanion[A, FA] {
 
-    def apply(in: Future[T]): U
-
-    implicit override def apply        (value: T)        : U =
-        apply(Future.successful(value))
-
-    implicit override def implicitApply(value: Future[T]): U =
-        apply(value)
 
 }
 

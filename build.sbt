@@ -36,6 +36,12 @@ publishMavenStyle := true
 
 profileName  := "com.bryghts"
 
+libraryDependencies ++= Seq(
+    "org.scala-lang"           %  "scala-reflect"     % "2.11.5",
+    "com.bryghts.numerics"     %% "numerics"          % "0.0.8-SNAPSHOT",
+    "org.specs2"               %% "specs2-scalacheck" % "2.4.17"       % "test"
+)
+
 publishTo := {
     val nexus = "https://oss.sonatype.org/"
     if (isSnapshot.value)

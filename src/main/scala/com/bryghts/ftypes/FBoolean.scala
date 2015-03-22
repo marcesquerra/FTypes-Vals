@@ -10,6 +10,8 @@ object FBoolean extends FAnyCompanion[Boolean, FBoolean]
 {
     val ftrue  = FBoolean(true)
     val ffalse = FBoolean(false)
+
+    type FA = FBoolean
 }
 
 /**
@@ -18,7 +20,7 @@ object FBoolean extends FAnyCompanion[Boolean, FBoolean]
 case class FBoolean(future: Future[Boolean]) extends FAny[Boolean, FBoolean]
 {
 
-    protected val companion = FBoolean
+    protected val builder = FBoolean
 
     def op(x: FBoolean, f: (Boolean, Boolean) => Boolean)(implicit ec: ExecutionContext):FBoolean =
             FBoolean(future.flatMap(a => x.future.map(b => f(a, b))))
@@ -37,5 +39,10 @@ case class FBoolean(future: Future[Boolean]) extends FAny[Boolean, FBoolean]
     def &       (x:  Boolean)(implicit ec: ExecutionContext): FBoolean = op(x, _ &  _)
     def ^       (x:  Boolean)(implicit ec: ExecutionContext): FBoolean = op(x, _ ^  _)
 
+    override def toFString(implicit ec: ExecutionContext):FString =
+        future.map{
+            case true => "ftrue"
+            case false => "ffalse"
+        }
 }
 

@@ -2,8 +2,10 @@ package com.bryghts.ftypes
 
 import java.util.concurrent.LinkedBlockingQueue
 
+import com.bryghts.ftypes.components.FAny
+
 import scala.concurrent.duration.Duration
-import scala.concurrent.{Awaitable, Future}
+import scala.concurrent.{ExecutionContext, Awaitable, Future}
 
 /**
  * Created by dunlord on 21/02/15.
@@ -36,8 +38,10 @@ package object helpers {
 
     Printer.start()
 
-    def fprint[T](in: Awaitable[T])(implicit timeout: Duration): Unit = printBuffer.add(ToPrint(in, false, timeout))
-    def fprintln[T](in: Awaitable[T])(implicit timeout: Duration): Unit = printBuffer.add(ToPrint(in, true, timeout))
-    def fprint(in: String)(implicit timeout: Duration): Unit = fprint(Future.successful(in))
-    def fprintln(in: String)(implicit timeout: Duration): Unit = fprintln(Future.successful(in))
+//    def fprint[T](in: Awaitable[T])(implicit timeout: Duration): Unit = printBuffer.add(ToPrint(in, false, timeout))
+//    def fprintln[T](in: Awaitable[T])(implicit timeout: Duration): Unit = printBuffer.add(ToPrint(in, true, timeout))
+    def fprint[FT <: FAny[_, FT]](in: FT)(implicit timeout: Duration, ec: ExecutionContext): Unit = printBuffer.add(ToPrint(in.toFString.future, false, timeout))
+    def fprintln[FT <: FAny[_, FT]](in: FT)(implicit timeout: Duration, ec: ExecutionContext): Unit = printBuffer.add(ToPrint(in.toFString.future, true, timeout))
+//    def fprint(in: String)(implicit timeout: Duration): Unit = fprint(Future.successful(in))
+//    def fprintln(in: String)(implicit timeout: Duration): Unit = fprintln(Future.successful(in))
 }
