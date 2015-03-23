@@ -38,7 +38,7 @@ profileName  := "com.bryghts"
 
 libraryDependencies ++= Seq(
     "org.scala-lang"           %  "scala-reflect"     % "2.11.5",
-    "com.bryghts.numerics"     %% "numerics"          % "0.0.8-SNAPSHOT",
+    "com.bryghts.numerics"     %% "numerics"          % "0.0.8",
     "org.specs2"               %% "specs2-scalacheck" % "2.4.17"       % "test"
 )
 
