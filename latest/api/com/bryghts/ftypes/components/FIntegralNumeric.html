@@ -45,16 +45,16 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">FIntegralNumeric</span><span class="tparams">[<span name="FA">FA &lt;: <a href="../FNumber.html" class="extype" name="com.bryghts.ftypes.FNumber">FNumber</a>[_, <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span>]</span>, <span name="FB">FB</span>, <span name="FR">FR</span>]</span><span class="result"> extends <a href="FNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumeric">FNumeric</a>[<span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span>, <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FB">FB</span>, <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FR">FR</span>]</span>
+        <span class="name">FIntegralNumeric</span><span class="tparams">[<span name="FA">FA</span>, <span name="FB">FB</span>]</span><span class="result"> extends <a href="FNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumeric">FNumeric</a>[<span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span>, <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FB">FB</span>]</span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="FNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumeric">FNumeric</a>[<span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span>, <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FB">FB</span>, <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FR">FR</span>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="FNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumeric">FNumeric</a>[<span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span>, <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FB">FB</span>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
             <span class="toggle">Known Subclasses</span>
-            <div class="subClasses hiddenContent"><a href="FNumericForBaseIntegralNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumericForBaseIntegralNumeric">FNumericForBaseIntegralNumeric</a>, <a href="FNumericMixedForBaseIntegralNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumericMixedForBaseIntegralNumeric">FNumericMixedForBaseIntegralNumeric</a></div>
+            <div class="subClasses hiddenContent"><a href="FNumericForBaseIntegralNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumericForBaseIntegralNumeric">FNumericForBaseIntegralNumeric</a>, <a href="MixedFNumericForBaseIntegralNumeric.html" class="extype" name="com.bryghts.ftypes.components.MixedFNumericForBaseIntegralNumeric">MixedFNumericForBaseIntegralNumeric</a></div>
           </div></div>
         
 
@@ -92,7 +92,27 @@
         <div id="allMembers">
         
 
-        
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="com.bryghts.ftypes.components.FNumeric.FR" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="FR"></a>
+      <a id="FR:FR"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">FR</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.bryghts.ftypes.components.FIntegralNumeric@FR" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="FNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumeric">FNumeric</a></dd></dl></div>
+    </li></ol>
+            </div>
 
         <div id="values" class="values members">
               <h3>Abstract Value Members</h3>
@@ -114,7 +134,7 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="FNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumeric">FNumeric</a></dd></dl></div>
     </li><li name="com.bryghts.ftypes.components.FNumeric#div" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="div(fa:FA,fb:FB)(implicitec:scala.concurrent.ExecutionContext):FR"></a>
+      <a id="div(fa:FA,fb:FB)(implicitec:scala.concurrent.ExecutionContext):FNumeric.this.FR"></a>
       <a id="div(FA,FB)(ExecutionContext):FR"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -122,16 +142,16 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">div</span><span class="params">(<span name="fa">fa: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span></span>, <span name="fb">fb: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FB">FB</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FR">FR</span></span>
+        <span class="name">div</span><span class="params">(<span name="fa">fa: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span></span>, <span name="fb">fb: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FB">FB</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="#FR" class="extmbr" name="com.bryghts.ftypes.components.FIntegralNumeric.FR">FR</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.bryghts.ftypes.components.FIntegralNumeric@div(fa:FA,fb:FB)(implicitec:scala.concurrent.ExecutionContext):FR" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.bryghts.ftypes.components.FIntegralNumeric@div(fa:FA,fb:FB)(implicitec:scala.concurrent.ExecutionContext):FNumeric.this.FR" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="FNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumeric">FNumeric</a></dd></dl></div>
     </li><li name="com.bryghts.ftypes.components.FNumeric#max" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="max(fx:FA,fy:FB)(implicitec:scala.concurrent.ExecutionContext):FR"></a>
+      <a id="max(fx:FA,fy:FB)(implicitec:scala.concurrent.ExecutionContext):FNumeric.this.FR"></a>
       <a id="max(FA,FB)(ExecutionContext):FR"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -139,16 +159,16 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">max</span><span class="params">(<span name="fx">fx: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span></span>, <span name="fy">fy: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FB">FB</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FR">FR</span></span>
+        <span class="name">max</span><span class="params">(<span name="fx">fx: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span></span>, <span name="fy">fy: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FB">FB</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="#FR" class="extmbr" name="com.bryghts.ftypes.components.FIntegralNumeric.FR">FR</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.bryghts.ftypes.components.FIntegralNumeric@max(fx:FA,fy:FB)(implicitec:scala.concurrent.ExecutionContext):FR" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.bryghts.ftypes.components.FIntegralNumeric@max(fx:FA,fy:FB)(implicitec:scala.concurrent.ExecutionContext):FNumeric.this.FR" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="FNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumeric">FNumeric</a></dd></dl></div>
     </li><li name="com.bryghts.ftypes.components.FNumeric#min" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="min(fx:FA,fy:FB)(implicitec:scala.concurrent.ExecutionContext):FR"></a>
+      <a id="min(fx:FA,fy:FB)(implicitec:scala.concurrent.ExecutionContext):FNumeric.this.FR"></a>
       <a id="min(FA,FB)(ExecutionContext):FR"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -156,16 +176,16 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">min</span><span class="params">(<span name="fx">fx: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span></span>, <span name="fy">fy: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FB">FB</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FR">FR</span></span>
+        <span class="name">min</span><span class="params">(<span name="fx">fx: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span></span>, <span name="fy">fy: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FB">FB</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="#FR" class="extmbr" name="com.bryghts.ftypes.components.FIntegralNumeric.FR">FR</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.bryghts.ftypes.components.FIntegralNumeric@min(fx:FA,fy:FB)(implicitec:scala.concurrent.ExecutionContext):FR" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.bryghts.ftypes.components.FIntegralNumeric@min(fx:FA,fy:FB)(implicitec:scala.concurrent.ExecutionContext):FNumeric.this.FR" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="FNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumeric">FNumeric</a></dd></dl></div>
     </li><li name="com.bryghts.ftypes.components.FNumeric#minus" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="minus(fa:FA,fb:FB)(implicitec:scala.concurrent.ExecutionContext):FR"></a>
+      <a id="minus(fa:FA,fb:FB)(implicitec:scala.concurrent.ExecutionContext):FNumeric.this.FR"></a>
       <a id="minus(FA,FB)(ExecutionContext):FR"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -173,33 +193,16 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">minus</span><span class="params">(<span name="fa">fa: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span></span>, <span name="fb">fb: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FB">FB</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FR">FR</span></span>
+        <span class="name">minus</span><span class="params">(<span name="fa">fa: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span></span>, <span name="fb">fb: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FB">FB</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="#FR" class="extmbr" name="com.bryghts.ftypes.components.FIntegralNumeric.FR">FR</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.bryghts.ftypes.components.FIntegralNumeric@minus(fa:FA,fb:FB)(implicitec:scala.concurrent.ExecutionContext):FR" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="FNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumeric">FNumeric</a></dd></dl></div>
-    </li><li name="com.bryghts.ftypes.components.FNumeric#one" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="one:FR"></a>
-      <a id="one:FR"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">one</span><span class="result">: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FR">FR</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#com.bryghts.ftypes.components.FIntegralNumeric@one:FR" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.bryghts.ftypes.components.FIntegralNumeric@minus(fa:FA,fb:FB)(implicitec:scala.concurrent.ExecutionContext):FNumeric.this.FR" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="FNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumeric">FNumeric</a></dd></dl></div>
     </li><li name="com.bryghts.ftypes.components.FNumeric#plus" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="plus(fa:FA,fb:FB)(implicitec:scala.concurrent.ExecutionContext):FR"></a>
+      <a id="plus(fa:FA,fb:FB)(implicitec:scala.concurrent.ExecutionContext):FNumeric.this.FR"></a>
       <a id="plus(FA,FB)(ExecutionContext):FR"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -207,16 +210,16 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">plus</span><span class="params">(<span name="fa">fa: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span></span>, <span name="fb">fb: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FB">FB</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FR">FR</span></span>
+        <span class="name">plus</span><span class="params">(<span name="fa">fa: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span></span>, <span name="fb">fb: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FB">FB</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="#FR" class="extmbr" name="com.bryghts.ftypes.components.FIntegralNumeric.FR">FR</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.bryghts.ftypes.components.FIntegralNumeric@plus(fa:FA,fb:FB)(implicitec:scala.concurrent.ExecutionContext):FR" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.bryghts.ftypes.components.FIntegralNumeric@plus(fa:FA,fb:FB)(implicitec:scala.concurrent.ExecutionContext):FNumeric.this.FR" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="FNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumeric">FNumeric</a></dd></dl></div>
     </li><li name="com.bryghts.ftypes.components.FIntegralNumeric#rem" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="rem(a:FA,b:FB)(implicitec:scala.concurrent.ExecutionContext):FR"></a>
+      <a id="rem(a:FA,b:FB)(implicitec:scala.concurrent.ExecutionContext):FIntegralNumeric.this.FR"></a>
       <a id="rem(FA,FB)(ExecutionContext):FR"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -224,16 +227,16 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">rem</span><span class="params">(<span name="a">a: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span></span>, <span name="b">b: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FB">FB</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FR">FR</span></span>
+        <span class="name">rem</span><span class="params">(<span name="a">a: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span></span>, <span name="b">b: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FB">FB</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="#FR" class="extmbr" name="com.bryghts.ftypes.components.FIntegralNumeric.FR">FR</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.bryghts.ftypes.components.FIntegralNumeric@rem(a:FA,b:FB)(implicitec:scala.concurrent.ExecutionContext):FR" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.bryghts.ftypes.components.FIntegralNumeric@rem(a:FA,b:FB)(implicitec:scala.concurrent.ExecutionContext):FIntegralNumeric.this.FR" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       
     </li><li name="com.bryghts.ftypes.components.FNumeric#times" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="times(fa:FA,fb:FB)(implicitec:scala.concurrent.ExecutionContext):FR"></a>
+      <a id="times(fa:FA,fb:FB)(implicitec:scala.concurrent.ExecutionContext):FNumeric.this.FR"></a>
       <a id="times(FA,FB)(ExecutionContext):FR"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -241,27 +244,10 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">times</span><span class="params">(<span name="fa">fa: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span></span>, <span name="fb">fb: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FB">FB</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FR">FR</span></span>
+        <span class="name">times</span><span class="params">(<span name="fa">fa: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span></span>, <span name="fb">fb: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FB">FB</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="#FR" class="extmbr" name="com.bryghts.ftypes.components.FIntegralNumeric.FR">FR</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.bryghts.ftypes.components.FIntegralNumeric@times(fa:FA,fb:FB)(implicitec:scala.concurrent.ExecutionContext):FR" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="FNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumeric">FNumeric</a></dd></dl></div>
-    </li><li name="com.bryghts.ftypes.components.FNumeric#zero" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="zero:FR"></a>
-      <a id="zero:FR"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">zero</span><span class="result">: <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FR">FR</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#com.bryghts.ftypes.components.FIntegralNumeric@zero:FR" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.bryghts.ftypes.components.FIntegralNumeric@times(fa:FA,fb:FB)(implicitec:scala.concurrent.ExecutionContext):FNumeric.this.FR" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
@@ -702,7 +688,7 @@
 
         <div id="inheritedMembers">
         <div class="parent" name="com.bryghts.ftypes.components.FNumeric">
-              <h3>Inherited from <a href="FNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumeric">FNumeric</a>[<span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span>, <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FB">FB</span>, <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FR">FR</span>]</h3>
+              <h3>Inherited from <a href="FNumeric.html" class="extype" name="com.bryghts.ftypes.components.FNumeric">FNumeric</a>[<span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FA">FA</span>, <span class="extype" name="com.bryghts.ftypes.components.FIntegralNumeric.FB">FB</span>]</h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">

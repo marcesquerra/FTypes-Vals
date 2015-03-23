@@ -47,13 +47,13 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">FString</span><span class="params">(<span name="future">future: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result"> extends <a href="components/FAny.html" class="extype" name="com.bryghts.ftypes.components.FAny">FAny</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">FString</span><span class="params">(<span name="future">future: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result"> extends <a href="components/FAny.html" class="extype" name="com.bryghts.ftypes.components.FAny">FAny</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a>] with <a href="components/FCharSequence.html" class="extype" name="com.bryghts.ftypes.components.FCharSequence">FCharSequence</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="components/FAny.html" class="extype" name="com.bryghts.ftypes.components.FAny">FAny</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a>], <span class="extype" name="scala.concurrent.Awaitable">Awaitable</span>[<span class="extype" name="scala.Predef.String">String</span>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="components/FCharSequence.html" class="extype" name="com.bryghts.ftypes.components.FCharSequence">FCharSequence</a>, <a href="components/FAny.html" class="extype" name="com.bryghts.ftypes.components.FAny">FAny</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a>], <span class="extype" name="scala.concurrent.Awaitable">Awaitable</span>[<span class="extype" name="scala.Predef.String">String</span>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -71,7 +71,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="com.bryghts.ftypes.FString"><span>FString</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="com.bryghts.ftypes.components.FAny"><span>FAny</span></li><li class="in" name="scala.concurrent.Awaitable"><span>Awaitable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="com.bryghts.ftypes.FString"><span>FString</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="com.bryghts.ftypes.components.FCharSequence"><span>FCharSequence</span></li><li class="in" name="com.bryghts.ftypes.components.FAny"><span>FAny</span></li><li class="in" name="scala.concurrent.Awaitable"><span>Awaitable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -168,6 +168,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.bryghts.ftypes.FString#+" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="+[T&lt;:com.bryghts.ftypes.components.FAny[_,T]](other:T)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString"></a>
+      <a id="+[T&lt;:FAny[_,T]](T)(ExecutionContext):FString"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="name">+</span><span class="tparams">[<span name="T">T &lt;: <a href="components/FAny.html" class="extype" name="com.bryghts.ftypes.components.FAny">FAny</a>[_, <span class="extype" name="com.bryghts.ftypes.FString.+.T">T</span>]</span>]</span><span class="params">(<span name="other">other: <span class="extype" name="com.bryghts.ftypes.FString.+.T">T</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@+[T&lt;:com.bryghts.ftypes.components.FAny[_,T]](other:T)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="com.bryghts.ftypes.components.FAny#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==[FB&lt;:com.bryghts.ftypes.components.FAny[_,FB]](x:FB)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean"></a>
       <a id="==[FB&lt;:FAny[_,FB]](FB)(ExecutionContext):FBoolean"></a>
@@ -219,6 +236,40 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="com.bryghts.ftypes.FString#builder" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="builder:com.bryghts.ftypes.FString.type"></a>
+      <a id="builder:FString.type"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">builder</span><span class="result">: <a href="FString$.html" class="extype" name="com.bryghts.ftypes.FString">FString</a>.type</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@builder:com.bryghts.ftypes.FString.type" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a> → <a href="components/FAny.html" class="extype" name="com.bryghts.ftypes.components.FAny">FAny</a></dd></dl></div>
+    </li><li name="com.bryghts.ftypes.components.FCharSequence#charAt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="charAt(index:com.bryghts.ftypes.FInt)(implicitexecutionContext:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FChar"></a>
+      <a id="charAt(FInt)(ExecutionContext):FChar"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">charAt</span><span class="params">(<span name="index">index: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="executionContext">executionContext: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="package$$FChar.html" class="extype" name="com.bryghts.ftypes.FChar">FChar</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@charAt(index:com.bryghts.ftypes.FInt)(implicitexecutionContext:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FChar" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="components/FCharSequence.html" class="extype" name="com.bryghts.ftypes.components.FCharSequence">FCharSequence</a></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
       <a id="clone():AnyRef"></a>
@@ -242,23 +293,159 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="com.bryghts.ftypes.FString#companion" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="companion:com.bryghts.ftypes.FString.type"></a>
-      <a id="companion:FString.type"></a>
+    </li><li name="com.bryghts.ftypes.FString#codePointAt" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="codePointAt(index:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt"></a>
+      <a id="codePointAt(FInt)(ExecutionContext):FInt"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">val</span>
+        <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">companion</span><span class="result">: <a href="FString$.html" class="extype" name="com.bryghts.ftypes.FString">FString</a>.type</span>
+        <span class="name">codePointAt</span><span class="params">(<span name="index">index: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.bryghts.ftypes.FString@companion:com.bryghts.ftypes.FString.type" title="Permalink" target="_top">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@codePointAt(index:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a> → <a href="components/FAny.html" class="extype" name="com.bryghts.ftypes.components.FAny">FAny</a></dd></dl></div>
+      
+    </li><li name="com.bryghts.ftypes.FString#codePointBefore" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="codePointBefore(index:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt"></a>
+      <a id="codePointBefore(FInt)(ExecutionContext):FInt"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">codePointBefore</span><span class="params">(<span name="index">index: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@codePointBefore(index:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#codePointCount" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="codePointCount(beginIndex:com.bryghts.ftypes.FInt,endIndex:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt"></a>
+      <a id="codePointCount(FInt,FInt)(ExecutionContext):FInt"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">codePointCount</span><span class="params">(<span name="beginIndex">beginIndex: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>, <span name="endIndex">endIndex: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@codePointCount(beginIndex:com.bryghts.ftypes.FInt,endIndex:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#compareTo" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="compareTo(anotherString:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt"></a>
+      <a id="compareTo(FString)(ExecutionContext):FInt"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">compareTo</span><span class="params">(<span name="anotherString">anotherString: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@compareTo(anotherString:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#compareToIgnoreCase" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="compareToIgnoreCase(str:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt"></a>
+      <a id="compareToIgnoreCase(FString)(ExecutionContext):FInt"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">compareToIgnoreCase</span><span class="params">(<span name="str">str: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@compareToIgnoreCase(str:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#concat" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="concat(str:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString"></a>
+      <a id="concat(FString)(ExecutionContext):FString"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">concat</span><span class="params">(<span name="str">str: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@concat(str:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#contains" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="contains(s:com.bryghts.ftypes.components.FCharSequence)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean"></a>
+      <a id="contains(FCharSequence)(ExecutionContext):FBoolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">contains</span><span class="params">(<span name="s">s: <a href="components/FCharSequence.html" class="extype" name="com.bryghts.ftypes.components.FCharSequence">FCharSequence</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="FBoolean.html" class="extype" name="com.bryghts.ftypes.FBoolean">FBoolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@contains(s:com.bryghts.ftypes.components.FCharSequence)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#contentEquals" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="contentEquals(cs:com.bryghts.ftypes.components.FCharSequence)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean"></a>
+      <a id="contentEquals(FCharSequence)(ExecutionContext):FBoolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">contentEquals</span><span class="params">(<span name="cs">cs: <a href="components/FCharSequence.html" class="extype" name="com.bryghts.ftypes.components.FCharSequence">FCharSequence</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="FBoolean.html" class="extype" name="com.bryghts.ftypes.FBoolean">FBoolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@contentEquals(cs:com.bryghts.ftypes.components.FCharSequence)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#endsWith" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="endsWith(suffix:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean"></a>
+      <a id="endsWith(FString)(ExecutionContext):FBoolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">endsWith</span><span class="params">(<span name="suffix">suffix: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="FBoolean.html" class="extype" name="com.bryghts.ftypes.FBoolean">FBoolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@endsWith(suffix:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -293,6 +480,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="components/FAny.html" class="extype" name="com.bryghts.ftypes.components.FAny">FAny</a></dd></dl></div>
+    </li><li name="com.bryghts.ftypes.FString#equalsIgnoreCase" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="equalsIgnoreCase(anotherString:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean"></a>
+      <a id="equalsIgnoreCase(FString)(ExecutionContext):FBoolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equalsIgnoreCase</span><span class="params">(<span name="anotherString">anotherString: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="FBoolean.html" class="extype" name="com.bryghts.ftypes.FBoolean">FBoolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@equalsIgnoreCase(anotherString:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="com.bryghts.ftypes.components.FAny#fhashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="fhashCode(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt"></a>
       <a id="fhashCode(ExecutionContext):FInt"></a>
@@ -349,7 +553,58 @@
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a> → <a href="components/FAny.html" class="extype" name="com.bryghts.ftypes.components.FAny">FAny</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a> → <a href="components/FCharSequence.html" class="extype" name="com.bryghts.ftypes.components.FCharSequence">FCharSequence</a> → <a href="components/FAny.html" class="extype" name="com.bryghts.ftypes.components.FAny">FAny</a></dd></dl></div>
+    </li><li name="com.bryghts.ftypes.FString#getBytes" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="getBytes(charset:java.nio.charset.Charset)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FArray[com.bryghts.ftypes.FByte]"></a>
+      <a id="getBytes(Charset)(ExecutionContext):FArray[FByte]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getBytes</span><span class="params">(<span name="charset">charset: <span class="extype" name="java.nio.charset.Charset">Charset</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="FArray.html" class="extype" name="com.bryghts.ftypes.FArray">FArray</a>[<a href="package$$FByte.html" class="extype" name="com.bryghts.ftypes.FByte">FByte</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@getBytes(charset:java.nio.charset.Charset)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FArray[com.bryghts.ftypes.FByte]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#getBytes" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="getBytes(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FArray[com.bryghts.ftypes.FByte]"></a>
+      <a id="getBytes(ExecutionContext):FArray[FByte]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getBytes</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="FArray.html" class="extype" name="com.bryghts.ftypes.FArray">FArray</a>[<a href="package$$FByte.html" class="extype" name="com.bryghts.ftypes.FByte">FByte</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@getBytes(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FArray[com.bryghts.ftypes.FByte]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#getBytes" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="getBytes(charsetName:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FArray[com.bryghts.ftypes.FByte]"></a>
+      <a id="getBytes(FString)(ExecutionContext):FArray[FByte]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getBytes</span><span class="params">(<span name="charsetName">charsetName: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="FArray.html" class="extype" name="com.bryghts.ftypes.FArray">FArray</a>[<a href="package$$FByte.html" class="extype" name="com.bryghts.ftypes.FByte">FByte</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@getBytes(charsetName:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FArray[com.bryghts.ftypes.FByte]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <a id="getClass():Class[_]"></a>
@@ -367,6 +622,91 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.bryghts.ftypes.FString#indexOf" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="indexOf(str:com.bryghts.ftypes.FString,fromIndex:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt"></a>
+      <a id="indexOf(FString,FInt)(ExecutionContext):FInt"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">indexOf</span><span class="params">(<span name="str">str: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>, <span name="fromIndex">fromIndex: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@indexOf(str:com.bryghts.ftypes.FString,fromIndex:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#indexOf" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="indexOf(str:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt"></a>
+      <a id="indexOf(FString)(ExecutionContext):FInt"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">indexOf</span><span class="params">(<span name="str">str: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@indexOf(str:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#indexOf" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="indexOf(ch:com.bryghts.ftypes.FInt,fromIndex:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt"></a>
+      <a id="indexOf(FInt,FInt)(ExecutionContext):FInt"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">indexOf</span><span class="params">(<span name="ch">ch: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>, <span name="fromIndex">fromIndex: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@indexOf(ch:com.bryghts.ftypes.FInt,fromIndex:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#indexOf" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="indexOf(ch:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt"></a>
+      <a id="indexOf(FInt)(ExecutionContext):FInt"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">indexOf</span><span class="params">(<span name="ch">ch: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@indexOf(ch:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#isEmpty" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="isEmpty(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean"></a>
+      <a id="isEmpty(ExecutionContext):FBoolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isEmpty</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="FBoolean.html" class="extype" name="com.bryghts.ftypes.FBoolean">FBoolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@isEmpty(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -384,6 +724,108 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="com.bryghts.ftypes.FString#lastIndexOf" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="lastIndexOf(str:com.bryghts.ftypes.FString,fromIndex:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt"></a>
+      <a id="lastIndexOf(FString,FInt)(ExecutionContext):FInt"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">lastIndexOf</span><span class="params">(<span name="str">str: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>, <span name="fromIndex">fromIndex: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@lastIndexOf(str:com.bryghts.ftypes.FString,fromIndex:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#lastIndexOf" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="lastIndexOf(str:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt"></a>
+      <a id="lastIndexOf(FString)(ExecutionContext):FInt"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">lastIndexOf</span><span class="params">(<span name="str">str: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@lastIndexOf(str:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#lastIndexOf" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="lastIndexOf(ch:com.bryghts.ftypes.FInt,fromIndex:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt"></a>
+      <a id="lastIndexOf(FInt,FInt)(ExecutionContext):FInt"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">lastIndexOf</span><span class="params">(<span name="ch">ch: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>, <span name="fromIndex">fromIndex: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@lastIndexOf(ch:com.bryghts.ftypes.FInt,fromIndex:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#lastIndexOf" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="lastIndexOf(ch:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt"></a>
+      <a id="lastIndexOf(FInt)(ExecutionContext):FInt"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">lastIndexOf</span><span class="params">(<span name="ch">ch: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@lastIndexOf(ch:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.components.FCharSequence#length" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="length(implicitexecutionContext:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt"></a>
+      <a id="length(ExecutionContext):FInt"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">length</span><span class="params">(<span class="implicit">implicit </span><span name="executionContext">executionContext: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@length(implicitexecutionContext:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="components/FCharSequence.html" class="extype" name="com.bryghts.ftypes.components.FCharSequence">FCharSequence</a></dd></dl></div>
+    </li><li name="com.bryghts.ftypes.FString#matches" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="matches(regex:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean"></a>
+      <a id="matches(FString)(ExecutionContext):FBoolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">matches</span><span class="params">(<span name="regex">regex: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="FBoolean.html" class="extype" name="com.bryghts.ftypes.FBoolean">FBoolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@matches(regex:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -435,6 +877,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="com.bryghts.ftypes.FString#offsetByCodePoints" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="offsetByCodePoints(index:com.bryghts.ftypes.FInt,codePointOffset:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt"></a>
+      <a id="offsetByCodePoints(FInt,FInt)(ExecutionContext):FInt"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">offsetByCodePoints</span><span class="params">(<span name="index">index: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>, <span name="codePointOffset">codePointOffset: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@offsetByCodePoints(index:com.bryghts.ftypes.FInt,codePointOffset:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FInt" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="com.bryghts.ftypes.components.FAny#ready" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ready(atMost:scala.concurrent.duration.Duration)(implicitpermit:scala.concurrent.CanAwait):FAny.this.type"></a>
       <a id="ready(Duration)(CanAwait):FString.this.type"></a>
@@ -463,8 +922,110 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="com.bryghts.ftypes.FString#regionMatches" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="regionMatches(ignoreCase:com.bryghts.ftypes.FBoolean,toffset:com.bryghts.ftypes.FInt,other:com.bryghts.ftypes.FString,ooffset:com.bryghts.ftypes.FInt,len:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean"></a>
+      <a id="regionMatches(FBoolean,FInt,FString,FInt,FInt)(ExecutionContext):FBoolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">regionMatches</span><span class="params">(<span name="ignoreCase">ignoreCase: <a href="FBoolean.html" class="extype" name="com.bryghts.ftypes.FBoolean">FBoolean</a></span>, <span name="toffset">toffset: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>, <span name="other">other: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>, <span name="ooffset">ooffset: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>, <span name="len">len: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="FBoolean.html" class="extype" name="com.bryghts.ftypes.FBoolean">FBoolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@regionMatches(ignoreCase:com.bryghts.ftypes.FBoolean,toffset:com.bryghts.ftypes.FInt,other:com.bryghts.ftypes.FString,ooffset:com.bryghts.ftypes.FInt,len:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#regionMatches" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="regionMatches(toffset:com.bryghts.ftypes.FInt,other:com.bryghts.ftypes.FString,ooffset:com.bryghts.ftypes.FInt,len:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean"></a>
+      <a id="regionMatches(FInt,FString,FInt,FInt)(ExecutionContext):FBoolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">regionMatches</span><span class="params">(<span name="toffset">toffset: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>, <span name="other">other: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>, <span name="ooffset">ooffset: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>, <span name="len">len: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="FBoolean.html" class="extype" name="com.bryghts.ftypes.FBoolean">FBoolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@regionMatches(toffset:com.bryghts.ftypes.FInt,other:com.bryghts.ftypes.FString,ooffset:com.bryghts.ftypes.FInt,len:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#replace" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="replace(target:com.bryghts.ftypes.components.FCharSequence,replacement:com.bryghts.ftypes.components.FCharSequence)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString"></a>
+      <a id="replace(FCharSequence,FCharSequence)(ExecutionContext):FString"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">replace</span><span class="params">(<span name="target">target: <a href="components/FCharSequence.html" class="extype" name="com.bryghts.ftypes.components.FCharSequence">FCharSequence</a></span>, <span name="replacement">replacement: <a href="components/FCharSequence.html" class="extype" name="com.bryghts.ftypes.components.FCharSequence">FCharSequence</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@replace(target:com.bryghts.ftypes.components.FCharSequence,replacement:com.bryghts.ftypes.components.FCharSequence)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#replace" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="replace(oldChar:com.bryghts.ftypes.FChar,newChar:com.bryghts.ftypes.FChar)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString"></a>
+      <a id="replace(FChar,FChar)(ExecutionContext):FString"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">replace</span><span class="params">(<span name="oldChar">oldChar: <a href="package$$FChar.html" class="extype" name="com.bryghts.ftypes.FChar">FChar</a></span>, <span name="newChar">newChar: <a href="package$$FChar.html" class="extype" name="com.bryghts.ftypes.FChar">FChar</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@replace(oldChar:com.bryghts.ftypes.FChar,newChar:com.bryghts.ftypes.FChar)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#replaceAll" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="replaceAll(regex:com.bryghts.ftypes.FString,replacement:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString"></a>
+      <a id="replaceAll(FString,FString)(ExecutionContext):FString"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">replaceAll</span><span class="params">(<span name="regex">regex: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>, <span name="replacement">replacement: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@replaceAll(regex:com.bryghts.ftypes.FString,replacement:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#replaceFirst" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="replaceFirst(regex:com.bryghts.ftypes.FString,replacement:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString"></a>
+      <a id="replaceFirst(FString,FString)(ExecutionContext):FString"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">replaceFirst</span><span class="params">(<span name="regex">regex: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>, <span name="replacement">replacement: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@replaceFirst(regex:com.bryghts.ftypes.FString,replacement:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="com.bryghts.ftypes.components.FAny#result" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="result(atMost:scala.concurrent.duration.Duration)(implicitpermit:scala.concurrent.CanAwait):T"></a>
+      <a id="result(atMost:scala.concurrent.duration.Duration)(implicitpermit:scala.concurrent.CanAwait):A"></a>
       <a id="result(Duration)(CanAwait):String"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -475,7 +1036,7 @@
         <span class="name">result</span><span class="params">(<span name="atMost">atMost: <span class="extype" name="scala.concurrent.duration.Duration">Duration</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="permit">permit: <span class="extype" name="scala.concurrent.CanAwait">CanAwait</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.bryghts.ftypes.FString@result(atMost:scala.concurrent.duration.Duration)(implicitpermit:scala.concurrent.CanAwait):T" title="Permalink" target="_top">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@result(atMost:scala.concurrent.duration.Duration)(implicitpermit:scala.concurrent.CanAwait):A" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
@@ -486,6 +1047,125 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="com.bryghts.ftypes.FString#split" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="split(regex:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FArray[com.bryghts.ftypes.FString]"></a>
+      <a id="split(FString)(ExecutionContext):FArray[FString]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">split</span><span class="params">(<span name="regex">regex: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="FArray.html" class="extype" name="com.bryghts.ftypes.FArray">FArray</a>[<a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@split(regex:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FArray[com.bryghts.ftypes.FString]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#split" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="split(regex:com.bryghts.ftypes.FString,limit:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FArray[com.bryghts.ftypes.FString]"></a>
+      <a id="split(FString,FInt)(ExecutionContext):FArray[FString]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">split</span><span class="params">(<span name="regex">regex: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>, <span name="limit">limit: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="FArray.html" class="extype" name="com.bryghts.ftypes.FArray">FArray</a>[<a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@split(regex:com.bryghts.ftypes.FString,limit:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FArray[com.bryghts.ftypes.FString]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#startsWith" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="startsWith(prefix:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean"></a>
+      <a id="startsWith(FString)(ExecutionContext):FBoolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">startsWith</span><span class="params">(<span name="prefix">prefix: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="FBoolean.html" class="extype" name="com.bryghts.ftypes.FBoolean">FBoolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@startsWith(prefix:com.bryghts.ftypes.FString)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#startsWith" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="startsWith(prefix:com.bryghts.ftypes.FString,toffset:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean"></a>
+      <a id="startsWith(FString,FInt)(ExecutionContext):FBoolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">startsWith</span><span class="params">(<span name="prefix">prefix: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>, <span name="toffset">toffset: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="FBoolean.html" class="extype" name="com.bryghts.ftypes.FBoolean">FBoolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@startsWith(prefix:com.bryghts.ftypes.FString,toffset:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FBoolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.components.FCharSequence#subSequence" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="subSequence(start:com.bryghts.ftypes.FInt,end:com.bryghts.ftypes.FInt)(implicitexecutionContext:scala.concurrent.ExecutionContext):com.bryghts.ftypes.components.FCharSequence"></a>
+      <a id="subSequence(FInt,FInt)(ExecutionContext):FCharSequence"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">subSequence</span><span class="params">(<span name="start">start: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>, <span name="end">end: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="executionContext">executionContext: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="components/FCharSequence.html" class="extype" name="com.bryghts.ftypes.components.FCharSequence">FCharSequence</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@subSequence(start:com.bryghts.ftypes.FInt,end:com.bryghts.ftypes.FInt)(implicitexecutionContext:scala.concurrent.ExecutionContext):com.bryghts.ftypes.components.FCharSequence" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="components/FCharSequence.html" class="extype" name="com.bryghts.ftypes.components.FCharSequence">FCharSequence</a></dd></dl></div>
+    </li><li name="com.bryghts.ftypes.FString#substring" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="substring(beginIndex:com.bryghts.ftypes.FInt,endIndex:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString"></a>
+      <a id="substring(FInt,FInt)(ExecutionContext):FString"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">substring</span><span class="params">(<span name="beginIndex">beginIndex: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>, <span name="endIndex">endIndex: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@substring(beginIndex:com.bryghts.ftypes.FInt,endIndex:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#substring" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="substring(beginIndex:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString"></a>
+      <a id="substring(FInt)(ExecutionContext):FString"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">substring</span><span class="params">(<span name="beginIndex">beginIndex: <a href="package$$FInt.html" class="extype" name="com.bryghts.ftypes.FInt">FInt</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@substring(beginIndex:com.bryghts.ftypes.FInt)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -503,7 +1183,24 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="com.bryghts.ftypes.components.FAny#toFString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.bryghts.ftypes.FString#toCharArray" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="toCharArray(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FArray[com.bryghts.ftypes.FChar]"></a>
+      <a id="toCharArray(ExecutionContext):FArray[FChar]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toCharArray</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="FArray.html" class="extype" name="com.bryghts.ftypes.FArray">FArray</a>[<a href="package$$FChar.html" class="extype" name="com.bryghts.ftypes.FChar">FChar</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@toCharArray(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FArray[com.bryghts.ftypes.FChar]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#toFString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toFString(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString"></a>
       <a id="toFString(ExecutionContext):FString"></a>
       <h4 class="signature">
@@ -519,7 +1216,92 @@
         <img src="../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="components/FAny.html" class="extype" name="com.bryghts.ftypes.components.FAny">FAny</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a> → <a href="components/FAny.html" class="extype" name="com.bryghts.ftypes.components.FAny">FAny</a></dd></dl></div>
+    </li><li name="com.bryghts.ftypes.FString#toLowerCase" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="toLowerCase(locale:java.util.Locale)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString"></a>
+      <a id="toLowerCase(Locale)(ExecutionContext):FString"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toLowerCase</span><span class="params">(<span name="locale">locale: <span class="extype" name="java.util.Locale">Locale</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@toLowerCase(locale:java.util.Locale)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#toLowerCase" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="toLowerCase(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString"></a>
+      <a id="toLowerCase(ExecutionContext):FString"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toLowerCase</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@toLowerCase(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#toUpperCase" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="toUpperCase(locale:java.util.Locale)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString"></a>
+      <a id="toUpperCase(Locale)(ExecutionContext):FString"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toUpperCase</span><span class="params">(<span name="locale">locale: <span class="extype" name="java.util.Locale">Locale</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@toUpperCase(locale:java.util.Locale)(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#toUpperCase" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="toUpperCase(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString"></a>
+      <a id="toUpperCase(ExecutionContext):FString"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toUpperCase</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@toUpperCase(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="com.bryghts.ftypes.FString#trim" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="trim(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString"></a>
+      <a id="trim(ExecutionContext):FString"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">trim</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.bryghts.ftypes.FString@trim(implicitec:scala.concurrent.ExecutionContext):com.bryghts.ftypes.FString" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -606,6 +1388,8 @@
               <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
             </div><div class="parent" name="scala.Equals">
               <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
+            </div><div class="parent" name="com.bryghts.ftypes.components.FCharSequence">
+              <h3>Inherited from <a href="components/FCharSequence.html" class="extype" name="com.bryghts.ftypes.components.FCharSequence">FCharSequence</a></h3>
             </div><div class="parent" name="com.bryghts.ftypes.components.FAny">
               <h3>Inherited from <a href="components/FAny.html" class="extype" name="com.bryghts.ftypes.components.FAny">FAny</a>[<span class="extype" name="scala.Predef.String">String</span>, <a href="" class="extype" name="com.bryghts.ftypes.FString">FString</a>]</h3>
             </div><div class="parent" name="scala.concurrent.Awaitable">
