@@ -23,15 +23,6 @@ class FArray[FT <: FAny[_, FT]](val future: Future[Array[FT]], elementBuilder: F
 }
 
 object FArray {
-//    def apply[T, FT <: FAny[T, FT]](in: Array[T])(implicit b: FBuilderOf[FT], executionContext: ExecutionContext, ct: ClassTag[FT]):FArray[FT] = apply[T, FT](Future.successful(in))
-//    def apply[T, FT <: FAny[T, FT]](in: Array[FT])(implicit b: FBuilderOf[FT], executionContext: ExecutionContext, ct: ClassTag[FT]):FArray[FT] = apply[T, FT](Future.successful(in))
-//    def apply[T, FT <: FAny[T, FT]](in: Future[Array[T]])(implicit b: FBuilderOf[FT], executionContext: ExecutionContext, ct: ClassTag[FT]):FArray[FT] = {
-//        val next: Future[Array[FT]] = in.map(_.map(e => b.apply(e.asInstanceOf[b.Type])).toArray)
-//
-//        apply[T, FT](next)(b)
-//    }
-//    def apply[T, FT <: FAny[T, FT]](in: Future[Array[FT]])(implicit b: FBuilderOf[FT]):FArray[FT] =
-//        new FArray[FT](in, b)
 
     case class FArrayCompanionBuilder[T, FT <: FAny[T, FT]](b: FAnyCompanion[T, FT]) {
 
@@ -45,16 +36,6 @@ object FArray {
         def apply(in: Future[Array[FT]]):FArray[FT] =
             new FArray[FT](in, b)
     }
-
-//    def apply[T, FT <: FAny[T, FT]](b: FAnyCompanion[T, FT])(in: Array[T])(implicit executionContext: ExecutionContext, ct: ClassTag[FT]):FArray[FT] = apply[T, FT](b)(Future.successful(in))
-//    def apply[T, FT <: FAny[T, FT]](b: FAnyCompanion[T, FT])(in: Array[FT])(implicit executionContext: ExecutionContext, ct: ClassTag[FT]):FArray[FT] = apply[T, FT](b)(Future.successful(in))
-//    def apply[T, FT <: FAny[T, FT]](b: FAnyCompanion[T, FT])(in: Future[Array[T]])(implicit executionContext: ExecutionContext, ct: ClassTag[FT]):FArray[FT] = {
-//        val next: Future[Array[FT]] = in.map(_.map(e => b(e)).toArray)
-//
-//        apply[T, FT](b)(next)
-//    }
-//    def apply[T, FT <: FAny[T, FT]](b: FAnyCompanion[T, FT])(in: Future[Array[FT]]):FArray[FT] =
-//        new FArray[FT](in, b)
 
     def apply[T, FT <: FAny[T, FT]](b: FAnyCompanion[T, FT]) = FArrayCompanionBuilder[T, FT](b)
 }
