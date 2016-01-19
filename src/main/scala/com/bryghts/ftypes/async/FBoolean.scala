@@ -2,7 +2,7 @@ package com.bryghts.ftypes.async
 
 import scala.concurrent._
 
-object FBoolean extends FAnyCompanion[Boolean, FBoolean]
+object FBoolean extends AnyCompanion[Boolean, FBoolean]
 {
 
     override def apply(in: Future[Boolean])(implicit executionContext: ExecutionContext): FBoolean =

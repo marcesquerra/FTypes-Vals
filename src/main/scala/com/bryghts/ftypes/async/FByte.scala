@@ -7,10 +7,10 @@ import scala.concurrent.{ExecutionContext, Future}
  */
 class FByte(val future: Future[Byte])(override implicit protected val executionContext: ExecutionContext) extends Any[Byte, FByte]{
 
-    private def op[R, FR <: Any[R, FR], B](r: FAnyCompanion[R, FR])(fb: Any[B, _])(f: (Byte, B) => R): FR =
+    private def op[R, FR <: Any[R, FR], B](r: AnyCompanion[R, FR])(fb: Any[B, _])(f: (Byte, B) => R): FR =
         r(future.flatMap(a => fb.future.map(b => f(a, b))))
 
-    private def op[R, FR <: Any[R, FR]](r: FAnyCompanion[R, FR], f: Byte => R): FR =
+    private def op[R, FR <: Any[R, FR]](r: AnyCompanion[R, FR], f: Byte => R): FR =
         r(future.map(f))
 
     def toFByte  : FByte   = this
@@ -125,6 +125,6 @@ class FByte(val future: Future[Byte])(override implicit protected val executionC
     def %(x: FDouble): FDouble = op(FDouble)(x)(_ % _)
 }
 
-object FByte extends FAnyCompanion[Byte, FByte] {
+object FByte extends AnyCompanion[Byte, FByte] {
     override def apply(in: Future[Byte])(implicit executionContext: ExecutionContext): FByte = new FByte(in)
 }

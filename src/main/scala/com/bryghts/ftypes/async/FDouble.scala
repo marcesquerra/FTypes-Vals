@@ -7,10 +7,10 @@ import scala.concurrent.{ExecutionContext, Future}
  */
 class FDouble(val future: Future[Double])(override implicit protected val executionContext: ExecutionContext) extends Any[Double, FDouble]{
 
-    def op[R, FR <: Any[R, FR], B](r: FAnyCompanion[R, FR])(fb: Any[B, _])(f: (Double, B) => R): FR =
+    def op[R, FR <: Any[R, FR], B](r: AnyCompanion[R, FR])(fb: Any[B, _])(f: (Double, B) => R): FR =
         r(future.flatMap(a => fb.future.map(b => f(a, b))))
 
-    def op[R, FR <: Any[R, FR]](r: FAnyCompanion[R, FR], f: Double => R): FR =
+    def op[R, FR <: Any[R, FR]](r: AnyCompanion[R, FR], f: Double => R): FR =
         r(future.map(f))
 
     def toFByte: FByte = op(FByte, _.toByte)
@@ -113,6 +113,6 @@ class FDouble(val future: Future[Double])(override implicit protected val execut
     def %(x: FDouble): FDouble = op(FDouble)(x)(_ % _)
 }
 
-object FDouble extends FAnyCompanion[Double, FDouble] {
+object FDouble extends AnyCompanion[Double, FDouble] {
     override def apply(in: Future[Double])(implicit executionContext: ExecutionContext): FDouble = new FDouble(in)
 }

@@ -8,6 +8,6 @@ import scala.concurrent.{ExecutionContext, Future}
 class FUnit(val future: Future[Unit])(override implicit protected val executionContext: ExecutionContext) extends Any[Unit, FUnit]{
 }
 
-object FUnit extends FAnyCompanion[Unit, FUnit] {
+object FUnit extends AnyCompanion[Unit, FUnit] {
     override def apply(in: Future[Unit])(implicit executionContext: ExecutionContext): FUnit = new FUnit(in)
 }
