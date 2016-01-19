@@ -1,11 +1,12 @@
-package com.bryghts.ftypes.async
+package com.bryghts.ftypes
+package async
 
 import scala.concurrent.{ExecutionContext, Future}
 
 /**
  * Created by Marc Esquerrà on 18/01/2016.
  */
-trait AnyCompanion[A, FA <: Any[A, FA]]
+trait AnyCompanion[A, FA <: async.Any[A, FA]]
 {
 
     def apply(in: Future[A])(implicit executionContext: ExecutionContext): FA

@@ -1,16 +1,17 @@
-package com.bryghts.ftypes.async
+package com.bryghts.ftypes
+package async
 
 import scala.concurrent.{ExecutionContext, Future}
 
 /**
  * Created by Marc Esquerrà on 24/03/15.
  */
-class FShort(val future: Future[Short])(override implicit protected val executionContext: ExecutionContext) extends Any[Short, FShort]{
+class FShort(val future: Future[Short])(override implicit protected val executionContext: ExecutionContext) extends async.Any[Short, FShort]{
 
-    def op[R, FR <: Any[R, FR], B](r: AnyCompanion[R, FR])(fb: Any[B, _])(f: (Short, B) => R): FR =
+    def op[R, FR <: async.Any[R, FR], B](r: async.AnyCompanion[R, FR])(fb: async.Any[B, _])(f: (Short, B) => R): FR =
         r(future.flatMap(a => fb.future.map(b => f(a, b))))
 
-    def op[R, FR <: Any[R, FR]](r: AnyCompanion[R, FR], f: Short => R): FR =
+    def op[R, FR <: async.Any[R, FR]](r: async.AnyCompanion[R, FR], f: Short => R): FR =
         r(future.map(f))
 
     def toFByte: FByte = op(FByte, _.toByte)
@@ -33,53 +34,53 @@ class FShort(val future: Future[Short])(override implicit protected val executio
     def >>(x: FInt): FInt = op(FInt)(x)(_ >> _)
     def >>(x: FLong): FInt = op(FInt)(x)(_ >> _)
 
-    def ==(x: FByte): FBoolean = op(FBoolean)(x)(_ == _)
-    def ==(x: FShort): FBoolean = op(FBoolean)(x)(_ == _)
-    def ==(x: FChar): FBoolean = op(FBoolean)(x)(_ == _)
-    def ==(x: FInt): FBoolean = op(FBoolean)(x)(_ == _)
-    def ==(x: FLong): FBoolean = op(FBoolean)(x)(_ == _)
-    def ==(x: FFloat): FBoolean = op(FBoolean)(x)(_ == _)
-    def ==(x: FDouble): FBoolean = op(FBoolean)(x)(_ == _)
+    def ==(x: FByte): async.Boolean = op(async.Boolean)(x)(_ == _)
+    def ==(x: FShort): async.Boolean = op(async.Boolean)(x)(_ == _)
+    def ==(x: FChar): async.Boolean = op(async.Boolean)(x)(_ == _)
+    def ==(x: FInt): async.Boolean = op(async.Boolean)(x)(_ == _)
+    def ==(x: FLong): async.Boolean = op(async.Boolean)(x)(_ == _)
+    def ==(x: FFloat): async.Boolean = op(async.Boolean)(x)(_ == _)
+    def ==(x: FDouble): async.Boolean = op(async.Boolean)(x)(_ == _)
 
-    def !=(x: FByte): FBoolean = op(FBoolean)(x)(_ != _)
-    def !=(x: FShort): FBoolean = op(FBoolean)(x)(_ != _)
-    def !=(x: FChar): FBoolean = op(FBoolean)(x)(_ != _)
-    def !=(x: FInt): FBoolean = op(FBoolean)(x)(_ != _)
-    def !=(x: FLong): FBoolean = op(FBoolean)(x)(_ != _)
-    def !=(x: FFloat): FBoolean = op(FBoolean)(x)(_ != _)
-    def !=(x: FDouble): FBoolean = op(FBoolean)(x)(_ != _)
+    def !=(x: FByte): async.Boolean = op(async.Boolean)(x)(_ != _)
+    def !=(x: FShort): async.Boolean = op(async.Boolean)(x)(_ != _)
+    def !=(x: FChar): async.Boolean = op(async.Boolean)(x)(_ != _)
+    def !=(x: FInt): async.Boolean = op(async.Boolean)(x)(_ != _)
+    def !=(x: FLong): async.Boolean = op(async.Boolean)(x)(_ != _)
+    def !=(x: FFloat): async.Boolean = op(async.Boolean)(x)(_ != _)
+    def !=(x: FDouble): async.Boolean = op(async.Boolean)(x)(_ != _)
 
-    def <(x: FByte): FBoolean = op(FBoolean)(x)(_ < _)
-    def <(x: FShort): FBoolean = op(FBoolean)(x)(_ < _)
-    def <(x: FChar): FBoolean = op(FBoolean)(x)(_ < _)
-    def <(x: FInt): FBoolean = op(FBoolean)(x)(_ < _)
-    def <(x: FLong): FBoolean = op(FBoolean)(x)(_ < _)
-    def <(x: FFloat): FBoolean = op(FBoolean)(x)(_ < _)
-    def <(x: FDouble): FBoolean = op(FBoolean)(x)(_ < _)
+    def <(x: FByte): async.Boolean = op(async.Boolean)(x)(_ < _)
+    def <(x: FShort): async.Boolean = op(async.Boolean)(x)(_ < _)
+    def <(x: FChar): async.Boolean = op(async.Boolean)(x)(_ < _)
+    def <(x: FInt): async.Boolean = op(async.Boolean)(x)(_ < _)
+    def <(x: FLong): async.Boolean = op(async.Boolean)(x)(_ < _)
+    def <(x: FFloat): async.Boolean = op(async.Boolean)(x)(_ < _)
+    def <(x: FDouble): async.Boolean = op(async.Boolean)(x)(_ < _)
 
-    def <=(x: FByte): FBoolean = op(FBoolean)(x)(_ <= _)
-    def <=(x: FShort): FBoolean = op(FBoolean)(x)(_ <= _)
-    def <=(x: FChar): FBoolean = op(FBoolean)(x)(_ <= _)
-    def <=(x: FInt): FBoolean = op(FBoolean)(x)(_ <= _)
-    def <=(x: FLong): FBoolean = op(FBoolean)(x)(_ <= _)
-    def <=(x: FFloat): FBoolean = op(FBoolean)(x)(_ <= _)
-    def <=(x: FDouble): FBoolean = op(FBoolean)(x)(_ <= _)
+    def <=(x: FByte): async.Boolean = op(async.Boolean)(x)(_ <= _)
+    def <=(x: FShort): async.Boolean = op(async.Boolean)(x)(_ <= _)
+    def <=(x: FChar): async.Boolean = op(async.Boolean)(x)(_ <= _)
+    def <=(x: FInt): async.Boolean = op(async.Boolean)(x)(_ <= _)
+    def <=(x: FLong): async.Boolean = op(async.Boolean)(x)(_ <= _)
+    def <=(x: FFloat): async.Boolean = op(async.Boolean)(x)(_ <= _)
+    def <=(x: FDouble): async.Boolean = op(async.Boolean)(x)(_ <= _)
 
-    def >(x: FByte): FBoolean = op(FBoolean)(x)(_ > _)
-    def >(x: FShort): FBoolean = op(FBoolean)(x)(_ > _)
-    def >(x: FChar): FBoolean = op(FBoolean)(x)(_ > _)
-    def >(x: FInt): FBoolean = op(FBoolean)(x)(_ > _)
-    def >(x: FLong): FBoolean = op(FBoolean)(x)(_ > _)
-    def >(x: FFloat): FBoolean = op(FBoolean)(x)(_ > _)
-    def >(x: FDouble): FBoolean = op(FBoolean)(x)(_ > _)
+    def >(x: FByte): async.Boolean = op(async.Boolean)(x)(_ > _)
+    def >(x: FShort): async.Boolean = op(async.Boolean)(x)(_ > _)
+    def >(x: FChar): async.Boolean = op(async.Boolean)(x)(_ > _)
+    def >(x: FInt): async.Boolean = op(async.Boolean)(x)(_ > _)
+    def >(x: FLong): async.Boolean = op(async.Boolean)(x)(_ > _)
+    def >(x: FFloat): async.Boolean = op(async.Boolean)(x)(_ > _)
+    def >(x: FDouble): async.Boolean = op(async.Boolean)(x)(_ > _)
 
-    def >=(x: FByte): FBoolean = op(FBoolean)(x)(_ >= _)
-    def >=(x: FShort): FBoolean = op(FBoolean)(x)(_ >= _)
-    def >=(x: FChar): FBoolean = op(FBoolean)(x)(_ >= _)
-    def >=(x: FInt): FBoolean = op(FBoolean)(x)(_ >= _)
-    def >=(x: FLong): FBoolean = op(FBoolean)(x)(_ >= _)
-    def >=(x: FFloat): FBoolean = op(FBoolean)(x)(_ >= _)
-    def >=(x: FDouble): FBoolean = op(FBoolean)(x)(_ >= _)
+    def >=(x: FByte): async.Boolean = op(async.Boolean)(x)(_ >= _)
+    def >=(x: FShort): async.Boolean = op(async.Boolean)(x)(_ >= _)
+    def >=(x: FChar): async.Boolean = op(async.Boolean)(x)(_ >= _)
+    def >=(x: FInt): async.Boolean = op(async.Boolean)(x)(_ >= _)
+    def >=(x: FLong): async.Boolean = op(async.Boolean)(x)(_ >= _)
+    def >=(x: FFloat): async.Boolean = op(async.Boolean)(x)(_ >= _)
+    def >=(x: FDouble): async.Boolean = op(async.Boolean)(x)(_ >= _)
 
     def |(x: FByte): FInt = op(FInt)(x)(_ | _)
     def |(x: FShort): FInt = op(FInt)(x)(_ | _)
@@ -139,6 +140,6 @@ class FShort(val future: Future[Short])(override implicit protected val executio
     def %(x: FFloat): FFloat = op(FFloat)(x)(_ % _)
     def %(x: FDouble): FDouble = op(FDouble)(x)(_ % _)
 }
-object FShort extends AnyCompanion[Short, FShort] {
+object FShort extends async.AnyCompanion[Short, FShort] {
     override def apply(in: Future[Short])(implicit executionContext: ExecutionContext): FShort = new FShort(in)
 }

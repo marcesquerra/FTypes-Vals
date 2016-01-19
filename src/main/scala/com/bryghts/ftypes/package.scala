@@ -12,8 +12,8 @@ import scala.language.implicitConversions
 */
 package object ftypes {
 
-    def ftrue(implicit executionContext: ExecutionContext)  = FBoolean(true)
-    def ffalse(implicit executionContext: ExecutionContext) = FBoolean(false)
+    def ftrue(implicit executionContext: ExecutionContext)  = async.Boolean(true)
+    def ffalse(implicit executionContext: ExecutionContext) = async.Boolean(false)
 
 
 
@@ -25,7 +25,7 @@ package object ftypes {
     implicit def implicitFloatToFFloat           (v: Float)(implicit executionContext: ExecutionContext):      FFloat      = FFloat(v)
     implicit def implicitDoubleToFDouble         (v: Double)(implicit executionContext: ExecutionContext):     FDouble     = FDouble(v)
 
-    implicit def implicitBooleanToFBoolean       (v: Boolean)(implicit executionContext: ExecutionContext):    FBoolean    = FBoolean(v)
+    implicit def implicitBooleanToFBoolean       (v: scala.Boolean)(implicit executionContext: ExecutionContext):    async.Boolean    = async.Boolean(v)
 
 
 }

@@ -1,4 +1,5 @@
-package com.bryghts.ftypes.async
+package com.bryghts.ftypes
+package async
 
 import scala.concurrent._
 import scala.concurrent.duration.Duration
@@ -19,13 +20,13 @@ trait Any[A, FA <: Any[A, FA]] extends Awaitable[A] {self =>
     @throws[Exception](classOf[Exception])
     override def result(atMost: Duration)(implicit permit: CanAwait) = future.result(atMost)(permit)
 
-    def ==[FB <: Any[_, FB]]      (x: FB): FBoolean =
-        FBoolean(future.flatMap(a => x.future.map(b => a == b)))
+    def ==[FB <: async.Any[_, FB]]      (x: FB): async.Boolean =
+        async.Boolean(future.flatMap(a => x.future.map(b => a == b)))
 
-    def !=[FB <: Any[_, FB]]      (x: FB): FBoolean =
-        FBoolean(future.flatMap(a => x.future.map(b => a != b)))
+    def !=[FB <: async.Any[_, FB]]      (x: FB): async.Boolean =
+        async.Boolean(future.flatMap(a => x.future.map(b => a != b)))
 
-    def equals[FB <: Any[_, FB]]  (x: FB): FBoolean =
-        FBoolean(future.flatMap(a => x.future.map(b => a equals b)))
+    def equals[FB <: async.Any[_, FB]]  (x: FB): async.Boolean =
+        async.Boolean(future.flatMap(a => x.future.map(b => a equals b)))
 
 }

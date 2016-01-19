@@ -1,13 +1,11 @@
 package com.bryghts.ftypes
 package statements
 
-import com.bryghts.ftypes.async.FBoolean
-
 import scala.concurrent._
 import scala.concurrent.duration.Duration
 
 
-class If[+T] private (p: FBoolean, t: => T)(implicit ec: ExecutionContext)
+class If[+T] private (p: async.Boolean, t: => T)(implicit ec: ExecutionContext)
     extends Awaitable[Option[T]]
 {
 
@@ -25,6 +23,6 @@ class If[+T] private (p: FBoolean, t: => T)(implicit ec: ExecutionContext)
 
 
 object If {
-    def apply[T](p: FBoolean)(t: => T)(implicit ec: ExecutionContext): If[T] = new If[T](p, t)(ec)
+    def apply[T](p: async.Boolean)(t: => T)(implicit ec: ExecutionContext): If[T] = new If[T](p, t)(ec)
 }
 
