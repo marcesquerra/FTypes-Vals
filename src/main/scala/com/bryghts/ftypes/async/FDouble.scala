@@ -1,17 +1,16 @@
-package com.bryghts.ftypes
-
+package com.bryghts.ftypes.async
 
 import scala.concurrent.{ExecutionContext, Future}
 
 /**
  * Created by Marc Esquerrà on 24/03/15.
  */
-class FFloat(val future: Future[Float])(override implicit protected val executionContext: ExecutionContext) extends FAny[Float, FFloat]{
+class FDouble(val future: Future[Double])(override implicit protected val executionContext: ExecutionContext) extends FAny[Double, FDouble]{
 
-    def op[R, FR <: FAny[R, FR], B](r: FAnyCompanion[R, FR])(fb: FAny[B, _])(f: (Float, B) => R): FR =
+    def op[R, FR <: FAny[R, FR], B](r: FAnyCompanion[R, FR])(fb: FAny[B, _])(f: (Double, B) => R): FR =
         r(future.flatMap(a => fb.future.map(b => f(a, b))))
 
-    def op[R, FR <: FAny[R, FR]](r: FAnyCompanion[R, FR], f: Float => R): FR =
+    def op[R, FR <: FAny[R, FR]](r: FAnyCompanion[R, FR], f: Double => R): FR =
         r(future.map(f))
 
     def toFByte: FByte = op(FByte, _.toByte)
@@ -19,11 +18,11 @@ class FFloat(val future: Future[Float])(override implicit protected val executio
     def toFChar: FChar = op(FChar, _.toChar)
     def toFInt: FInt = op(FInt, _.toInt)
     def toFLong: FLong = op(FLong, _.toLong)
-    def toFFloat: FFloat = this
-    def toFDouble: FDouble = op(FDouble, _.toDouble)
+    def toFFloat: FFloat = op(FFloat, _.toFloat)
+    def toFDouble: FDouble = this
 
-    def unary_+ : FFloat = op(FFloat, _.unary_+ )
-    def unary_- : FFloat = op(FFloat, _.unary_- )
+    def unary_+ : FDouble = op(FDouble, _.unary_+ )
+    def unary_- : FDouble = op(FDouble, _.unary_- )
 
     def ==(x: FByte): FBoolean = op(FBoolean)(x)(_ == _)
     def ==(x: FShort): FBoolean = op(FBoolean)(x)(_ == _)
@@ -73,47 +72,47 @@ class FFloat(val future: Future[Float])(override implicit protected val executio
     def >=(x: FFloat): FBoolean = op(FBoolean)(x)(_ >= _)
     def >=(x: FDouble): FBoolean = op(FBoolean)(x)(_ >= _)
 
-    def +(x: FByte): FFloat = op(FFloat)(x)(_ + _)
-    def +(x: FShort): FFloat = op(FFloat)(x)(_ + _)
-    def +(x: FChar): FFloat = op(FFloat)(x)(_ + _)
-    def +(x: FInt): FFloat = op(FFloat)(x)(_ + _)
-    def +(x: FLong): FFloat = op(FFloat)(x)(_ + _)
-    def +(x: FFloat): FFloat = op(FFloat)(x)(_ + _)
+    def +(x: FByte): FDouble = op(FDouble)(x)(_ + _)
+    def +(x: FShort): FDouble = op(FDouble)(x)(_ + _)
+    def +(x: FChar): FDouble = op(FDouble)(x)(_ + _)
+    def +(x: FInt): FDouble = op(FDouble)(x)(_ + _)
+    def +(x: FLong): FDouble = op(FDouble)(x)(_ + _)
+    def +(x: FFloat): FDouble = op(FDouble)(x)(_ + _)
     def +(x: FDouble): FDouble = op(FDouble)(x)(_ + _)
 
-    def -(x: FByte): FFloat = op(FFloat)(x)(_ - _)
-    def -(x: FShort): FFloat = op(FFloat)(x)(_ - _)
-    def -(x: FChar): FFloat = op(FFloat)(x)(_ - _)
-    def -(x: FInt): FFloat = op(FFloat)(x)(_ - _)
-    def -(x: FLong): FFloat = op(FFloat)(x)(_ - _)
-    def -(x: FFloat): FFloat = op(FFloat)(x)(_ - _)
+    def -(x: FByte): FDouble = op(FDouble)(x)(_ - _)
+    def -(x: FShort): FDouble = op(FDouble)(x)(_ - _)
+    def -(x: FChar): FDouble = op(FDouble)(x)(_ - _)
+    def -(x: FInt): FDouble = op(FDouble)(x)(_ - _)
+    def -(x: FLong): FDouble = op(FDouble)(x)(_ - _)
+    def -(x: FFloat): FDouble = op(FDouble)(x)(_ - _)
     def -(x: FDouble): FDouble = op(FDouble)(x)(_ - _)
 
-    def *(x: FByte): FFloat = op(FFloat)(x)(_ * _)
-    def *(x: FShort): FFloat = op(FFloat)(x)(_ * _)
-    def *(x: FChar): FFloat = op(FFloat)(x)(_ * _)
-    def *(x: FInt): FFloat = op(FFloat)(x)(_ * _)
-    def *(x: FLong): FFloat = op(FFloat)(x)(_ * _)
-    def *(x: FFloat): FFloat = op(FFloat)(x)(_ * _)
+    def *(x: FByte): FDouble = op(FDouble)(x)(_ * _)
+    def *(x: FShort): FDouble = op(FDouble)(x)(_ * _)
+    def *(x: FChar): FDouble = op(FDouble)(x)(_ * _)
+    def *(x: FInt): FDouble = op(FDouble)(x)(_ * _)
+    def *(x: FLong): FDouble = op(FDouble)(x)(_ * _)
+    def *(x: FFloat): FDouble = op(FDouble)(x)(_ * _)
     def *(x: FDouble): FDouble = op(FDouble)(x)(_ * _)
 
-    def /(x: FByte): FFloat = op(FFloat)(x)(_ / _)
-    def /(x: FShort): FFloat = op(FFloat)(x)(_ / _)
-    def /(x: FChar): FFloat = op(FFloat)(x)(_ / _)
-    def /(x: FInt): FFloat = op(FFloat)(x)(_ / _)
-    def /(x: FLong): FFloat = op(FFloat)(x)(_ / _)
-    def /(x: FFloat): FFloat = op(FFloat)(x)(_ / _)
+    def /(x: FByte): FDouble = op(FDouble)(x)(_ / _)
+    def /(x: FShort): FDouble = op(FDouble)(x)(_ / _)
+    def /(x: FChar): FDouble = op(FDouble)(x)(_ / _)
+    def /(x: FInt): FDouble = op(FDouble)(x)(_ / _)
+    def /(x: FLong): FDouble = op(FDouble)(x)(_ / _)
+    def /(x: FFloat): FDouble = op(FDouble)(x)(_ / _)
     def /(x: FDouble): FDouble = op(FDouble)(x)(_ / _)
 
-    def %(x: FByte): FFloat = op(FFloat)(x)(_ % _)
-    def %(x: FShort): FFloat = op(FFloat)(x)(_ % _)
-    def %(x: FChar): FFloat = op(FFloat)(x)(_ % _)
-    def %(x: FInt): FFloat = op(FFloat)(x)(_ % _)
-    def %(x: FLong): FFloat = op(FFloat)(x)(_ % _)
-    def %(x: FFloat): FFloat = op(FFloat)(x)(_ % _)
+    def %(x: FByte): FDouble = op(FDouble)(x)(_ % _)
+    def %(x: FShort): FDouble = op(FDouble)(x)(_ % _)
+    def %(x: FChar): FDouble = op(FDouble)(x)(_ % _)
+    def %(x: FInt): FDouble = op(FDouble)(x)(_ % _)
+    def %(x: FLong): FDouble = op(FDouble)(x)(_ % _)
+    def %(x: FFloat): FDouble = op(FDouble)(x)(_ % _)
     def %(x: FDouble): FDouble = op(FDouble)(x)(_ % _)
 }
 
-object FFloat extends FAnyCompanion[Float, FFloat] {
-    override def apply(in: Future[Float])(implicit executionContext: ExecutionContext): FFloat = new FFloat(in)
+object FDouble extends FAnyCompanion[Double, FDouble] {
+    override def apply(in: Future[Double])(implicit executionContext: ExecutionContext): FDouble = new FDouble(in)
 }

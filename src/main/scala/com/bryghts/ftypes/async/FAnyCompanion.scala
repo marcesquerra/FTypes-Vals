@@ -1,4 +1,4 @@
-package com.bryghts.ftypes
+package com.bryghts.ftypes.async
 
 import scala.concurrent.{ExecutionContext, Future}
 

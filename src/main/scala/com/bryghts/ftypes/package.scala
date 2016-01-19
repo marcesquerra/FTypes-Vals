@@ -1,6 +1,8 @@
 package com.bryghts
 
 
+import com.bryghts.ftypes.async._
+
 import scala.concurrent.ExecutionContext
 import scala.language.implicitConversions
 

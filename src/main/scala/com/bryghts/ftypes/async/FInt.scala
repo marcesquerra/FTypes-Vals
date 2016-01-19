@@ -1,24 +1,26 @@
-package com.bryghts.ftypes
+package com.bryghts.ftypes.async
 
 import scala.concurrent.{ExecutionContext, Future}
 
 /**
  * Created by Marc Esquerrà on 24/03/15.
  */
-class FChar(val future: Future[Char])(override implicit protected val executionContext: ExecutionContext) extends FAny[Char, FChar]{
+class FInt(val future: Future[Int])(override implicit protected val executionContext: ExecutionContext) extends FAny[Int, FInt]{
 
-    def op[R, FR <: FAny[R, FR], B](r: FAnyCompanion[R, FR])(fb: FAny[B, _])(f: (Char, B) => R): FR =
+    def op[R, FR <: FAny[R, FR], B](r: FAnyCompanion[R, FR])(fb: FAny[B, _])(f: (Int, B) => R): FR =
         r(future.flatMap(a => fb.future.map(b => f(a, b))))
 
-    def op[R, FR <: FAny[R, FR]](r: FAnyCompanion[R, FR], f: Char => R): FR =
+    def op[R, FR <: FAny[R, FR]](r: FAnyCompanion[R, FR], f: Int => R): FR =
         r(future.map(f))
 
+    def toFByte: FByte = op(FByte, _.toByte)
     def toFShort: FShort = op(FShort, _.toShort)
-    def toFChar: FChar = this
-    def toFInt: FInt = op(FInt, _.toInt)
+    def toFChar: FChar = op(FChar, _.toChar)
+    def toFInt: FInt = this
     def toFLong: FLong = op(FLong, _.toLong)
     def toFFloat: FFloat = op(FFloat, _.toFloat)
     def toFDouble: FDouble = op(FDouble, _.toDouble)
+
 
     def unary_~ : FInt = op(FInt, _.unary_~ )
     def unary_+ : FInt = op(FInt, _.unary_+ )
@@ -137,6 +139,7 @@ class FChar(val future: Future[Char])(override implicit protected val executionC
     def %(x: FFloat): FFloat = op(FFloat)(x)(_ % _)
     def %(x: FDouble): FDouble = op(FDouble)(x)(_ % _)
 }
-object FChar extends FAnyCompanion[Char, FChar] {
-    override def apply(in: Future[Char])(implicit executionContext: ExecutionContext): FChar = new FChar(in)
+
+object FInt extends FAnyCompanion[Int, FInt] {
+    override def apply(in: Future[Int])(implicit executionContext: ExecutionContext): FInt = new FInt(in)
 }

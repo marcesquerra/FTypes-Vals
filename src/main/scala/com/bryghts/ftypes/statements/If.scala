@@ -1,6 +1,8 @@
 package com.bryghts.ftypes
 package statements
 
+import com.bryghts.ftypes.async.FBoolean
+
 import scala.concurrent._
 import scala.concurrent.duration.Duration
 
