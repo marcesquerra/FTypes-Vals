@@ -1,6 +1,7 @@
 package com.bryghts
 
 
+import scala.concurrent.ExecutionContext
 import scala.language.implicitConversions
 
 
@@ -9,24 +10,20 @@ import scala.language.implicitConversions
 */
 package object ftypes {
 
-    val ftrue = FBoolean.ftrue
-    val ffalse = FBoolean.ffalse
+    def ftrue(implicit executionContext: ExecutionContext)  = FBoolean(true)
+    def ffalse(implicit executionContext: ExecutionContext) = FBoolean(false)
 
 
 
-    implicit def implicitByteToFByte             (v: Byte):       FByte       = FByte(v)
-    implicit def implicitCharToFChar             (v: Char):       FChar       = FChar(v)
-    implicit def implicitShortToFShort           (v: Short):      FShort      = FShort(v)
-    implicit def implicitIntToFInt               (v: Int):        FInt        = FInt(v)
-    implicit def implicitLongToFLong             (v: Long):       FLong       = FLong(v)
-    implicit def implicitFloatToFFloat           (v: Float):      FFloat      = FFloat(v)
-    implicit def implicitDoubleToFDouble         (v: Double):     FDouble     = FDouble(v)
-    implicit def implicitBigIntToFBigInt         (v: BigInt):     FBigInt     = FBigInt(v)
-    implicit def implicitBigDecimalToFBigDecimal (v: BigDecimal): FBigDecimal = FBigDecimal(v)
+    implicit def implicitByteToFByte             (v: Byte)(implicit executionContext: ExecutionContext):       FByte       = FByte(v)
+    implicit def implicitCharToFChar             (v: Char)(implicit executionContext: ExecutionContext):       FChar       = FChar(v)
+    implicit def implicitShortToFShort           (v: Short)(implicit executionContext: ExecutionContext):      FShort      = FShort(v)
+    implicit def implicitIntToFInt               (v: Int)(implicit executionContext: ExecutionContext):        FInt        = FInt(v)
+    implicit def implicitLongToFLong             (v: Long)(implicit executionContext: ExecutionContext):       FLong       = FLong(v)
+    implicit def implicitFloatToFFloat           (v: Float)(implicit executionContext: ExecutionContext):      FFloat      = FFloat(v)
+    implicit def implicitDoubleToFDouble         (v: Double)(implicit executionContext: ExecutionContext):     FDouble     = FDouble(v)
 
-    implicit def implicitBooleanToFBoolean       (v: Boolean):    FBoolean    = FBoolean(v)
-
-    implicit def implicitStringToFString         (v: String):     FString     = FString(v)
+    implicit def implicitBooleanToFBoolean       (v: Boolean)(implicit executionContext: ExecutionContext):    FBoolean    = FBoolean(v)
 
 
 }

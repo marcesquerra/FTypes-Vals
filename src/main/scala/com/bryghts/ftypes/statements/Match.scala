@@ -1,6 +1,6 @@
 //package com.bryghts.ftypes
 //
-//import com.bryghts.ftypes.components.FAny
+//import com.bryghts.ftypes.async.FAny
 //
 //import scala.concurrent.{Future, ExecutionContext}
 //

@@ -3,7 +3,6 @@ import _root_.sbt.Project
 import _root_.sbtrelease.ReleaseStateTransformations
 import _root_.sbtrelease.ReleaseStateTransformations._
 import _root_.sbtrelease.ReleaseStep
-import SonatypeKeys._
 import sbtrelease._
 import ReleaseStateTransformations._
 import ReleaseKeys._
@@ -12,33 +11,45 @@ import com.typesafe.sbt.SbtGit.{GitKeys => git}
 
 releaseSettings
 
-sonatypeSettings
-
 site.settings
 
 ghpages.settings
 
 site.includeScaladoc()
 
-val nameLiteral = "FTypes"
+val nameLiteral = "ftypes-vals"
 
 organization := s"com.bryghts.${nameLiteral.toLowerCase}"
-
-scalaVersion := "2.10.3"
 
 git.gitRemoteRepo := s"git@github.com:marcesquerra/$nameLiteral.git"
 
 name := nameLiteral
 
-scalaVersion := "2.11.5"
+scalaVersion := "2.11.6"
+
+crossScalaVersions := Seq("2.10.4", "2.11.6")
 
 publishMavenStyle := true
 
-profileName  := "com.bryghts"
+sonatypeProfileName  := "com.bryghts"
 
 libraryDependencies ++= Seq(
-    "org.specs2"               %% "specs2-scalacheck" % "2.4.17"       % "test"
+    "org.scala-lang" %  "scala-reflect"      % scalaVersion.value,
+    "org.specs2"     %% "specs2-scalacheck"  % "2.4.17"       % "test"
 )
+
+libraryDependencies := {
+    CrossVersion.partialVersion(scalaVersion.value) match {
+        // if scala 2.11+ is used, quasiquotes are merged into scala-reflect
+        case Some((2, scalaMajor)) if scalaMajor >= 11 =>
+            libraryDependencies.value
+        // in Scala 2.10, quasiquotes are provided by macro paradise
+        case Some((2, 10)) =>
+            libraryDependencies.value ++ Seq(
+                compilerPlugin("org.scalamacros" % "paradise" % "2.0.0" cross CrossVersion.full),
+                "org.scalamacros" %% "quasiquotes" % "2.0.0" cross CrossVersion.binary)
+    }
+}
 
 publishTo := {
     val nexus = "https://oss.sonatype.org/"
@@ -78,17 +89,13 @@ releaseProcess := Seq[ReleaseStep](
     setReleaseVersion,                            // : ReleaseStep
     commitReleaseVersion,                         // : ReleaseStep, performs the initial git checks
     tagRelease,                                   // : ReleaseStep
-    ReleaseStep(
-        action = { state =>
-            val extracted = Project extract state
-            extracted.runAggregated(PgpKeys.publishSigned in Global in extracted.get(thisProjectRef), state)
-        }
-    ),           // : ReleaseStep, checks whether `publishTo` is properly set up
-    ReleaseStep{ state =>
-        val extracted = Project extract state
-        extracted.runAggregated(sonatypeReleaseAll in Global in extracted.get(thisProjectRef), state)
-    }, // : ReleaseStep, checks whether `publishTo` is properly set up
+    ReleaseStep(action = Command.process("publishSigned", _), enableCrossBuild = true),
     setNextVersion,                               // : ReleaseStep
     commitNextVersion,                            // : ReleaseStep
+    ReleaseStep(action = Command.process("sonatypeReleaseAll", _)),
     pushChanges                                   // : ReleaseStep, also checks that an upstream branch is properly configured
 )
+
+
+
+
