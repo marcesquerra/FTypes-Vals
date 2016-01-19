@@ -5,7 +5,7 @@ import scala.concurrent.{ExecutionContext, Future}
 /**
  * Created by Marc Esquerrà on 18/01/2016.
  */
-trait FAnyCompanion[A, FA <: FAny[A, FA]]
+trait FAnyCompanion[A, FA <: Any[A, FA]]
 {
 
     def apply(in: Future[A])(implicit executionContext: ExecutionContext): FA

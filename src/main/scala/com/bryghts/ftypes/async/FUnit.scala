@@ -5,7 +5,7 @@ import scala.concurrent.{ExecutionContext, Future}
 /**
  * Created by Marc Esquerrà on 18/03/15.
  */
-class FUnit(val future: Future[Unit])(override implicit protected val executionContext: ExecutionContext) extends FAny[Unit, FUnit]{
+class FUnit(val future: Future[Unit])(override implicit protected val executionContext: ExecutionContext) extends Any[Unit, FUnit]{
 }
 
 object FUnit extends FAnyCompanion[Unit, FUnit] {

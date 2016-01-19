@@ -13,7 +13,7 @@ object FBoolean extends FAnyCompanion[Boolean, FBoolean]
 /**
  * Created by Marc Esquerrà on 22/01/2015.
  */
-class FBoolean private(val future: Future[Boolean])(override implicit protected val executionContext: ExecutionContext) extends FAny[Boolean, FBoolean]
+class FBoolean private(val future: Future[Boolean])(override implicit protected val executionContext: ExecutionContext) extends Any[Boolean, FBoolean]
 {
 
     private def op(x: FBoolean, f: (Boolean, Boolean) => Boolean):FBoolean =

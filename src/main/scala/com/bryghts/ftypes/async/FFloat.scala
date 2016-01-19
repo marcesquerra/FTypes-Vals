@@ -5,12 +5,12 @@ import scala.concurrent.{ExecutionContext, Future}
 /**
  * Created by Marc Esquerrà on 24/03/15.
  */
-class FFloat(val future: Future[Float])(override implicit protected val executionContext: ExecutionContext) extends FAny[Float, FFloat]{
+class FFloat(val future: Future[Float])(override implicit protected val executionContext: ExecutionContext) extends Any[Float, FFloat]{
 
-    def op[R, FR <: FAny[R, FR], B](r: FAnyCompanion[R, FR])(fb: FAny[B, _])(f: (Float, B) => R): FR =
+    def op[R, FR <: Any[R, FR], B](r: FAnyCompanion[R, FR])(fb: Any[B, _])(f: (Float, B) => R): FR =
         r(future.flatMap(a => fb.future.map(b => f(a, b))))
 
-    def op[R, FR <: FAny[R, FR]](r: FAnyCompanion[R, FR], f: Float => R): FR =
+    def op[R, FR <: Any[R, FR]](r: FAnyCompanion[R, FR], f: Float => R): FR =
         r(future.map(f))
 
     def toFByte: FByte = op(FByte, _.toByte)

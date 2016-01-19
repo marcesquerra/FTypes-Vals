@@ -6,7 +6,7 @@ import scala.concurrent.duration.Duration
 /**
  * Created by Marc Esquerrà on 22/01/2015.
  */
-trait FAny[A, FA <: FAny[A, FA]] extends Awaitable[A] {self =>
+trait Any[A, FA <: Any[A, FA]] extends Awaitable[A] {self =>
 
     implicit protected def executionContext:ExecutionContext
 
@@ -19,13 +19,13 @@ trait FAny[A, FA <: FAny[A, FA]] extends Awaitable[A] {self =>
     @throws[Exception](classOf[Exception])
     override def result(atMost: Duration)(implicit permit: CanAwait) = future.result(atMost)(permit)
 
-    def ==[FB <: FAny[_, FB]]      (x: FB): FBoolean =
+    def ==[FB <: Any[_, FB]]      (x: FB): FBoolean =
         FBoolean(future.flatMap(a => x.future.map(b => a == b)))
 
-    def !=[FB <: FAny[_, FB]]      (x: FB): FBoolean =
+    def !=[FB <: Any[_, FB]]      (x: FB): FBoolean =
         FBoolean(future.flatMap(a => x.future.map(b => a != b)))
 
-    def equals[FB <: FAny[_, FB]]  (x: FB): FBoolean =
+    def equals[FB <: Any[_, FB]]  (x: FB): FBoolean =
         FBoolean(future.flatMap(a => x.future.map(b => a equals b)))
 
 }
