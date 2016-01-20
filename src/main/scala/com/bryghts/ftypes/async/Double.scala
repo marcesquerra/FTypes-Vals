@@ -19,7 +19,7 @@ class Double(val future: Future[scala.Double])(override implicit protected val e
     def toFChar: async.Char = op(async.Char, _.toChar)
     def toFInt: FInt = op(FInt, _.toInt)
     def toFLong: FLong = op(FLong, _.toLong)
-    def toFFloat: FFloat = op(FFloat, _.toFloat)
+    def toFFloat: async.Float = op(async.Float, _.toFloat)
     def toFDouble: async.Double = this
 
     def unary_+ : async.Double = op(async.Double, _.unary_+ )
@@ -30,7 +30,7 @@ class Double(val future: Future[scala.Double])(override implicit protected val e
     def ==(x: async.Char): async.Boolean = op(async.Boolean)(x)(_ == _)
     def ==(x: FInt): async.Boolean = op(async.Boolean)(x)(_ == _)
     def ==(x: FLong): async.Boolean = op(async.Boolean)(x)(_ == _)
-    def ==(x: FFloat): async.Boolean = op(async.Boolean)(x)(_ == _)
+    def ==(x: async.Float): async.Boolean = op(async.Boolean)(x)(_ == _)
     def ==(x: async.Double): async.Boolean = op(async.Boolean)(x)(_ == _)
 
     def !=(x: async.Byte): async.Boolean = op(async.Boolean)(x)(_ != _)
@@ -38,7 +38,7 @@ class Double(val future: Future[scala.Double])(override implicit protected val e
     def !=(x: async.Char): async.Boolean = op(async.Boolean)(x)(_ != _)
     def !=(x: FInt): async.Boolean = op(async.Boolean)(x)(_ != _)
     def !=(x: FLong): async.Boolean = op(async.Boolean)(x)(_ != _)
-    def !=(x: FFloat): async.Boolean = op(async.Boolean)(x)(_ != _)
+    def !=(x: async.Float): async.Boolean = op(async.Boolean)(x)(_ != _)
     def !=(x: async.Double): async.Boolean = op(async.Boolean)(x)(_ != _)
 
     def <(x: async.Byte): async.Boolean = op(async.Boolean)(x)(_ < _)
@@ -46,7 +46,7 @@ class Double(val future: Future[scala.Double])(override implicit protected val e
     def <(x: async.Char): async.Boolean = op(async.Boolean)(x)(_ < _)
     def <(x: FInt): async.Boolean = op(async.Boolean)(x)(_ < _)
     def <(x: FLong): async.Boolean = op(async.Boolean)(x)(_ < _)
-    def <(x: FFloat): async.Boolean = op(async.Boolean)(x)(_ < _)
+    def <(x: async.Float): async.Boolean = op(async.Boolean)(x)(_ < _)
     def <(x: async.Double): async.Boolean = op(async.Boolean)(x)(_ < _)
 
     def <=(x: async.Byte): async.Boolean = op(async.Boolean)(x)(_ <= _)
@@ -54,7 +54,7 @@ class Double(val future: Future[scala.Double])(override implicit protected val e
     def <=(x: async.Char): async.Boolean = op(async.Boolean)(x)(_ <= _)
     def <=(x: FInt): async.Boolean = op(async.Boolean)(x)(_ <= _)
     def <=(x: FLong): async.Boolean = op(async.Boolean)(x)(_ <= _)
-    def <=(x: FFloat): async.Boolean = op(async.Boolean)(x)(_ <= _)
+    def <=(x: async.Float): async.Boolean = op(async.Boolean)(x)(_ <= _)
     def <=(x: async.Double): async.Boolean = op(async.Boolean)(x)(_ <= _)
 
     def >(x: async.Byte): async.Boolean = op(async.Boolean)(x)(_ > _)
@@ -62,7 +62,7 @@ class Double(val future: Future[scala.Double])(override implicit protected val e
     def >(x: async.Char): async.Boolean = op(async.Boolean)(x)(_ > _)
     def >(x: FInt): async.Boolean = op(async.Boolean)(x)(_ > _)
     def >(x: FLong): async.Boolean = op(async.Boolean)(x)(_ > _)
-    def >(x: FFloat): async.Boolean = op(async.Boolean)(x)(_ > _)
+    def >(x: async.Float): async.Boolean = op(async.Boolean)(x)(_ > _)
     def >(x: async.Double): async.Boolean = op(async.Boolean)(x)(_ > _)
 
     def >=(x: async.Byte): async.Boolean = op(async.Boolean)(x)(_ >= _)
@@ -70,7 +70,7 @@ class Double(val future: Future[scala.Double])(override implicit protected val e
     def >=(x: async.Char): async.Boolean = op(async.Boolean)(x)(_ >= _)
     def >=(x: FInt): async.Boolean = op(async.Boolean)(x)(_ >= _)
     def >=(x: FLong): async.Boolean = op(async.Boolean)(x)(_ >= _)
-    def >=(x: FFloat): async.Boolean = op(async.Boolean)(x)(_ >= _)
+    def >=(x: async.Float): async.Boolean = op(async.Boolean)(x)(_ >= _)
     def >=(x: async.Double): async.Boolean = op(async.Boolean)(x)(_ >= _)
 
     def +(x: async.Byte): async.Double = op(async.Double)(x)(_ + _)
@@ -78,7 +78,7 @@ class Double(val future: Future[scala.Double])(override implicit protected val e
     def +(x: async.Char): async.Double = op(async.Double)(x)(_ + _)
     def +(x: FInt): async.Double = op(async.Double)(x)(_ + _)
     def +(x: FLong): async.Double = op(async.Double)(x)(_ + _)
-    def +(x: FFloat): async.Double = op(async.Double)(x)(_ + _)
+    def +(x: async.Float): async.Double = op(async.Double)(x)(_ + _)
     def +(x: async.Double): async.Double = op(async.Double)(x)(_ + _)
 
     def -(x: async.Byte): async.Double = op(async.Double)(x)(_ - _)
@@ -86,7 +86,7 @@ class Double(val future: Future[scala.Double])(override implicit protected val e
     def -(x: async.Char): async.Double = op(async.Double)(x)(_ - _)
     def -(x: FInt): async.Double = op(async.Double)(x)(_ - _)
     def -(x: FLong): async.Double = op(async.Double)(x)(_ - _)
-    def -(x: FFloat): async.Double = op(async.Double)(x)(_ - _)
+    def -(x: async.Float): async.Double = op(async.Double)(x)(_ - _)
     def -(x: async.Double): async.Double = op(async.Double)(x)(_ - _)
 
     def *(x: async.Byte): async.Double = op(async.Double)(x)(_ * _)
@@ -94,7 +94,7 @@ class Double(val future: Future[scala.Double])(override implicit protected val e
     def *(x: async.Char): async.Double = op(async.Double)(x)(_ * _)
     def *(x: FInt): async.Double = op(async.Double)(x)(_ * _)
     def *(x: FLong): async.Double = op(async.Double)(x)(_ * _)
-    def *(x: FFloat): async.Double = op(async.Double)(x)(_ * _)
+    def *(x: async.Float): async.Double = op(async.Double)(x)(_ * _)
     def *(x: async.Double): async.Double = op(async.Double)(x)(_ * _)
 
     def /(x: async.Byte): async.Double = op(async.Double)(x)(_ / _)
@@ -102,7 +102,7 @@ class Double(val future: Future[scala.Double])(override implicit protected val e
     def /(x: async.Char): async.Double = op(async.Double)(x)(_ / _)
     def /(x: FInt): async.Double = op(async.Double)(x)(_ / _)
     def /(x: FLong): async.Double = op(async.Double)(x)(_ / _)
-    def /(x: FFloat): async.Double = op(async.Double)(x)(_ / _)
+    def /(x: async.Float): async.Double = op(async.Double)(x)(_ / _)
     def /(x: async.Double): async.Double = op(async.Double)(x)(_ / _)
 
     def %(x: async.Byte): async.Double = op(async.Double)(x)(_ % _)
@@ -110,7 +110,7 @@ class Double(val future: Future[scala.Double])(override implicit protected val e
     def %(x: async.Char): async.Double = op(async.Double)(x)(_ % _)
     def %(x: FInt): async.Double = op(async.Double)(x)(_ % _)
     def %(x: FLong): async.Double = op(async.Double)(x)(_ % _)
-    def %(x: FFloat): async.Double = op(async.Double)(x)(_ % _)
+    def %(x: async.Float): async.Double = op(async.Double)(x)(_ % _)
     def %(x: async.Double): async.Double = op(async.Double)(x)(_ % _)
 }
 
