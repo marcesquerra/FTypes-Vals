@@ -23,7 +23,7 @@ package object ftypes {
     implicit def implicitIntToFInt               (v: scala.Int)(implicit executionContext: ExecutionContext):        FInt        = FInt(v)
     implicit def implicitLongToFLong             (v: scala.Long)(implicit executionContext: ExecutionContext):       FLong       = FLong(v)
     implicit def implicitFloatToFFloat           (v: scala.Float)(implicit executionContext: ExecutionContext):      FFloat      = FFloat(v)
-    implicit def implicitDoubleToFDouble         (v: scala.Double)(implicit executionContext: ExecutionContext):     FDouble     = FDouble(v)
+    implicit def implicitDoubleToFDouble         (v: scala.Double)(implicit executionContext: ExecutionContext):     async.Double     = async.Double(v)
 
     implicit def implicitBooleanToFBoolean       (v: scala.Boolean)(implicit executionContext: ExecutionContext):    async.Boolean    = async.Boolean(v)
 

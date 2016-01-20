@@ -20,7 +20,7 @@ class FFloat(val future: Future[scala.Float])(override implicit protected val ex
     def toFInt: FInt = op(FInt, _.toInt)
     def toFLong: FLong = op(FLong, _.toLong)
     def toFFloat: FFloat = this
-    def toFDouble: FDouble = op(FDouble, _.toDouble)
+    def toFDouble: async.Double = op(async.Double, _.toDouble)
 
     def unary_+ : FFloat = op(FFloat, _.unary_+ )
     def unary_- : FFloat = op(FFloat, _.unary_- )
@@ -31,7 +31,7 @@ class FFloat(val future: Future[scala.Float])(override implicit protected val ex
     def ==(x: FInt): async.Boolean = op(async.Boolean)(x)(_ == _)
     def ==(x: FLong): async.Boolean = op(async.Boolean)(x)(_ == _)
     def ==(x: FFloat): async.Boolean = op(async.Boolean)(x)(_ == _)
-    def ==(x: FDouble): async.Boolean = op(async.Boolean)(x)(_ == _)
+    def ==(x: async.Double): async.Boolean = op(async.Boolean)(x)(_ == _)
 
     def !=(x: async.Byte): async.Boolean = op(async.Boolean)(x)(_ != _)
     def !=(x: FShort): async.Boolean = op(async.Boolean)(x)(_ != _)
@@ -39,7 +39,7 @@ class FFloat(val future: Future[scala.Float])(override implicit protected val ex
     def !=(x: FInt): async.Boolean = op(async.Boolean)(x)(_ != _)
     def !=(x: FLong): async.Boolean = op(async.Boolean)(x)(_ != _)
     def !=(x: FFloat): async.Boolean = op(async.Boolean)(x)(_ != _)
-    def !=(x: FDouble): async.Boolean = op(async.Boolean)(x)(_ != _)
+    def !=(x: async.Double): async.Boolean = op(async.Boolean)(x)(_ != _)
 
     def <(x: async.Byte): async.Boolean = op(async.Boolean)(x)(_ < _)
     def <(x: FShort): async.Boolean = op(async.Boolean)(x)(_ < _)
@@ -47,7 +47,7 @@ class FFloat(val future: Future[scala.Float])(override implicit protected val ex
     def <(x: FInt): async.Boolean = op(async.Boolean)(x)(_ < _)
     def <(x: FLong): async.Boolean = op(async.Boolean)(x)(_ < _)
     def <(x: FFloat): async.Boolean = op(async.Boolean)(x)(_ < _)
-    def <(x: FDouble): async.Boolean = op(async.Boolean)(x)(_ < _)
+    def <(x: async.Double): async.Boolean = op(async.Boolean)(x)(_ < _)
 
     def <=(x: async.Byte): async.Boolean = op(async.Boolean)(x)(_ <= _)
     def <=(x: FShort): async.Boolean = op(async.Boolean)(x)(_ <= _)
@@ -55,7 +55,7 @@ class FFloat(val future: Future[scala.Float])(override implicit protected val ex
     def <=(x: FInt): async.Boolean = op(async.Boolean)(x)(_ <= _)
     def <=(x: FLong): async.Boolean = op(async.Boolean)(x)(_ <= _)
     def <=(x: FFloat): async.Boolean = op(async.Boolean)(x)(_ <= _)
-    def <=(x: FDouble): async.Boolean = op(async.Boolean)(x)(_ <= _)
+    def <=(x: async.Double): async.Boolean = op(async.Boolean)(x)(_ <= _)
 
     def >(x: async.Byte): async.Boolean = op(async.Boolean)(x)(_ > _)
     def >(x: FShort): async.Boolean = op(async.Boolean)(x)(_ > _)
@@ -63,7 +63,7 @@ class FFloat(val future: Future[scala.Float])(override implicit protected val ex
     def >(x: FInt): async.Boolean = op(async.Boolean)(x)(_ > _)
     def >(x: FLong): async.Boolean = op(async.Boolean)(x)(_ > _)
     def >(x: FFloat): async.Boolean = op(async.Boolean)(x)(_ > _)
-    def >(x: FDouble): async.Boolean = op(async.Boolean)(x)(_ > _)
+    def >(x: async.Double): async.Boolean = op(async.Boolean)(x)(_ > _)
 
     def >=(x: async.Byte): async.Boolean = op(async.Boolean)(x)(_ >= _)
     def >=(x: FShort): async.Boolean = op(async.Boolean)(x)(_ >= _)
@@ -71,7 +71,7 @@ class FFloat(val future: Future[scala.Float])(override implicit protected val ex
     def >=(x: FInt): async.Boolean = op(async.Boolean)(x)(_ >= _)
     def >=(x: FLong): async.Boolean = op(async.Boolean)(x)(_ >= _)
     def >=(x: FFloat): async.Boolean = op(async.Boolean)(x)(_ >= _)
-    def >=(x: FDouble): async.Boolean = op(async.Boolean)(x)(_ >= _)
+    def >=(x: async.Double): async.Boolean = op(async.Boolean)(x)(_ >= _)
 
     def +(x: async.Byte): FFloat = op(FFloat)(x)(_ + _)
     def +(x: FShort): FFloat = op(FFloat)(x)(_ + _)
@@ -79,7 +79,7 @@ class FFloat(val future: Future[scala.Float])(override implicit protected val ex
     def +(x: FInt): FFloat = op(FFloat)(x)(_ + _)
     def +(x: FLong): FFloat = op(FFloat)(x)(_ + _)
     def +(x: FFloat): FFloat = op(FFloat)(x)(_ + _)
-    def +(x: FDouble): FDouble = op(FDouble)(x)(_ + _)
+    def +(x: async.Double): async.Double = op(async.Double)(x)(_ + _)
 
     def -(x: async.Byte): FFloat = op(FFloat)(x)(_ - _)
     def -(x: FShort): FFloat = op(FFloat)(x)(_ - _)
@@ -87,7 +87,7 @@ class FFloat(val future: Future[scala.Float])(override implicit protected val ex
     def -(x: FInt): FFloat = op(FFloat)(x)(_ - _)
     def -(x: FLong): FFloat = op(FFloat)(x)(_ - _)
     def -(x: FFloat): FFloat = op(FFloat)(x)(_ - _)
-    def -(x: FDouble): FDouble = op(FDouble)(x)(_ - _)
+    def -(x: async.Double): async.Double = op(async.Double)(x)(_ - _)
 
     def *(x: async.Byte): FFloat = op(FFloat)(x)(_ * _)
     def *(x: FShort): FFloat = op(FFloat)(x)(_ * _)
@@ -95,7 +95,7 @@ class FFloat(val future: Future[scala.Float])(override implicit protected val ex
     def *(x: FInt): FFloat = op(FFloat)(x)(_ * _)
     def *(x: FLong): FFloat = op(FFloat)(x)(_ * _)
     def *(x: FFloat): FFloat = op(FFloat)(x)(_ * _)
-    def *(x: FDouble): FDouble = op(FDouble)(x)(_ * _)
+    def *(x: async.Double): async.Double = op(async.Double)(x)(_ * _)
 
     def /(x: async.Byte): FFloat = op(FFloat)(x)(_ / _)
     def /(x: FShort): FFloat = op(FFloat)(x)(_ / _)
@@ -103,7 +103,7 @@ class FFloat(val future: Future[scala.Float])(override implicit protected val ex
     def /(x: FInt): FFloat = op(FFloat)(x)(_ / _)
     def /(x: FLong): FFloat = op(FFloat)(x)(_ / _)
     def /(x: FFloat): FFloat = op(FFloat)(x)(_ / _)
-    def /(x: FDouble): FDouble = op(FDouble)(x)(_ / _)
+    def /(x: async.Double): async.Double = op(async.Double)(x)(_ / _)
 
     def %(x: async.Byte): FFloat = op(FFloat)(x)(_ % _)
     def %(x: FShort): FFloat = op(FFloat)(x)(_ % _)
@@ -111,7 +111,7 @@ class FFloat(val future: Future[scala.Float])(override implicit protected val ex
     def %(x: FInt): FFloat = op(FFloat)(x)(_ % _)
     def %(x: FLong): FFloat = op(FFloat)(x)(_ % _)
     def %(x: FFloat): FFloat = op(FFloat)(x)(_ % _)
-    def %(x: FDouble): FDouble = op(FDouble)(x)(_ % _)
+    def %(x: async.Double): async.Double = op(async.Double)(x)(_ % _)
 }
 
 object FFloat extends async.AnyCompanion[scala.Float, FFloat] {
