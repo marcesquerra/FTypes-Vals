@@ -20,13 +20,13 @@ trait Any[A, FA <: Any[A, FA]] extends Awaitable[A] {self =>
     @throws[Exception](classOf[Exception])
     override def result(atMost: Duration)(implicit permit: CanAwait) = future.result(atMost)(permit)
 
-    def ==[FB <: async.Any[_, FB]]      (x: FB): async.Boolean =
+    def ==[FB]      (x: FB)(implicit ev1: FB => FA): async.Boolean =
         async.Boolean(future.flatMap(a => x.future.map(b => a == b)))
 
-    def !=[FB <: async.Any[_, FB]]      (x: FB): async.Boolean =
+    def =![FB]      (x: FB)(implicit ev1: FB => FA): async.Boolean =
         async.Boolean(future.flatMap(a => x.future.map(b => a != b)))
 
-    def equals[FB <: async.Any[_, FB]]  (x: FB): async.Boolean =
+    def equals[FB]  (x: FB)(implicit ev1: FB => FA): async.Boolean =
         async.Boolean(future.flatMap(a => x.future.map(b => a equals b)))
 
 }
