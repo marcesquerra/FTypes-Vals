@@ -17,7 +17,7 @@ class Char(val future: Future[scala.Char])(override implicit protected val execu
     def toFShort: async.Short = op(async.Short, _.toShort)
     def toFChar: async.Char = this
     def toFInt: async.Int = op(async.Int, _.toInt)
-    def toFLong: FLong = op(FLong, _.toLong)
+    def toFLong: async.Long = op(async.Long, _.toLong)
     def toFFloat: async.Float = op(async.Float, _.toFloat)
     def toFDouble: async.Double = op(async.Double, _.toDouble)
 
@@ -26,17 +26,17 @@ class Char(val future: Future[scala.Char])(override implicit protected val execu
     def unary_- : async.Int = op(async.Int, _.unary_- )
 
     def <<(x: async.Int): async.Int = op(async.Int)(x)(_ << _)
-    def <<(x: FLong): async.Int = op(async.Int)(x)(_ << _)
+    def <<(x: async.Long): async.Int = op(async.Int)(x)(_ << _)
     def >>>(x: async.Int): async.Int = op(async.Int)(x)(_ >>> _)
-    def >>>(x: FLong): async.Int = op(async.Int)(x)(_ >>> _)
+    def >>>(x: async.Long): async.Int = op(async.Int)(x)(_ >>> _)
     def >>(x: async.Int): async.Int = op(async.Int)(x)(_ >> _)
-    def >>(x: FLong): async.Int = op(async.Int)(x)(_ >> _)
+    def >>(x: async.Long): async.Int = op(async.Int)(x)(_ >> _)
 
     def ==(x: async.Byte): async.Boolean = op(async.Boolean)(x)(_ == _)
     def ==(x: async.Short): async.Boolean = op(async.Boolean)(x)(_ == _)
     def ==(x: async.Char): async.Boolean = op(async.Boolean)(x)(_ == _)
     def ==(x: async.Int): async.Boolean = op(async.Boolean)(x)(_ == _)
-    def ==(x: FLong): async.Boolean = op(async.Boolean)(x)(_ == _)
+    def ==(x: async.Long): async.Boolean = op(async.Boolean)(x)(_ == _)
     def ==(x: async.Float): async.Boolean = op(async.Boolean)(x)(_ == _)
     def ==(x: async.Double): async.Boolean = op(async.Boolean)(x)(_ == _)
 
@@ -44,7 +44,7 @@ class Char(val future: Future[scala.Char])(override implicit protected val execu
     def !=(x: async.Short): async.Boolean = op(async.Boolean)(x)(_ != _)
     def !=(x: async.Char): async.Boolean = op(async.Boolean)(x)(_ != _)
     def !=(x: async.Int): async.Boolean = op(async.Boolean)(x)(_ != _)
-    def !=(x: FLong): async.Boolean = op(async.Boolean)(x)(_ != _)
+    def !=(x: async.Long): async.Boolean = op(async.Boolean)(x)(_ != _)
     def !=(x: async.Float): async.Boolean = op(async.Boolean)(x)(_ != _)
     def !=(x: async.Double): async.Boolean = op(async.Boolean)(x)(_ != _)
 
@@ -52,7 +52,7 @@ class Char(val future: Future[scala.Char])(override implicit protected val execu
     def <(x: async.Short): async.Boolean = op(async.Boolean)(x)(_ < _)
     def <(x: async.Char): async.Boolean = op(async.Boolean)(x)(_ < _)
     def <(x: async.Int): async.Boolean = op(async.Boolean)(x)(_ < _)
-    def <(x: FLong): async.Boolean = op(async.Boolean)(x)(_ < _)
+    def <(x: async.Long): async.Boolean = op(async.Boolean)(x)(_ < _)
     def <(x: async.Float): async.Boolean = op(async.Boolean)(x)(_ < _)
     def <(x: async.Double): async.Boolean = op(async.Boolean)(x)(_ < _)
 
@@ -60,7 +60,7 @@ class Char(val future: Future[scala.Char])(override implicit protected val execu
     def <=(x: async.Short): async.Boolean = op(async.Boolean)(x)(_ <= _)
     def <=(x: async.Char): async.Boolean = op(async.Boolean)(x)(_ <= _)
     def <=(x: async.Int): async.Boolean = op(async.Boolean)(x)(_ <= _)
-    def <=(x: FLong): async.Boolean = op(async.Boolean)(x)(_ <= _)
+    def <=(x: async.Long): async.Boolean = op(async.Boolean)(x)(_ <= _)
     def <=(x: async.Float): async.Boolean = op(async.Boolean)(x)(_ <= _)
     def <=(x: async.Double): async.Boolean = op(async.Boolean)(x)(_ <= _)
 
@@ -68,7 +68,7 @@ class Char(val future: Future[scala.Char])(override implicit protected val execu
     def >(x: async.Short): async.Boolean = op(async.Boolean)(x)(_ > _)
     def >(x: async.Char): async.Boolean = op(async.Boolean)(x)(_ > _)
     def >(x: async.Int): async.Boolean = op(async.Boolean)(x)(_ > _)
-    def >(x: FLong): async.Boolean = op(async.Boolean)(x)(_ > _)
+    def >(x: async.Long): async.Boolean = op(async.Boolean)(x)(_ > _)
     def >(x: async.Float): async.Boolean = op(async.Boolean)(x)(_ > _)
     def >(x: async.Double): async.Boolean = op(async.Boolean)(x)(_ > _)
 
@@ -76,7 +76,7 @@ class Char(val future: Future[scala.Char])(override implicit protected val execu
     def >=(x: async.Short): async.Boolean = op(async.Boolean)(x)(_ >= _)
     def >=(x: async.Char): async.Boolean = op(async.Boolean)(x)(_ >= _)
     def >=(x: async.Int): async.Boolean = op(async.Boolean)(x)(_ >= _)
-    def >=(x: FLong): async.Boolean = op(async.Boolean)(x)(_ >= _)
+    def >=(x: async.Long): async.Boolean = op(async.Boolean)(x)(_ >= _)
     def >=(x: async.Float): async.Boolean = op(async.Boolean)(x)(_ >= _)
     def >=(x: async.Double): async.Boolean = op(async.Boolean)(x)(_ >= _)
 
@@ -84,25 +84,25 @@ class Char(val future: Future[scala.Char])(override implicit protected val execu
     def |(x: async.Short): async.Int = op(async.Int)(x)(_ | _)
     def |(x: async.Char): async.Int = op(async.Int)(x)(_ | _)
     def |(x: async.Int): async.Int = op(async.Int)(x)(_ | _)
-    def |(x: FLong): FLong = op(FLong)(x)(_ | _)
+    def |(x: async.Long): async.Long = op(async.Long)(x)(_ | _)
 
     def &(x: async.Byte): async.Int = op(async.Int)(x)(_ & _)
     def &(x: async.Short): async.Int = op(async.Int)(x)(_ & _)
     def &(x: async.Char): async.Int = op(async.Int)(x)(_ & _)
     def &(x: async.Int): async.Int = op(async.Int)(x)(_ & _)
-    def &(x: FLong): FLong = op(FLong)(x)(_ & _)
+    def &(x: async.Long): async.Long = op(async.Long)(x)(_ & _)
 
     def ^(x: async.Byte): async.Int = op(async.Int)(x)(_ ^ _)
     def ^(x: async.Short): async.Int = op(async.Int)(x)(_ ^ _)
     def ^(x: async.Char): async.Int = op(async.Int)(x)(_ ^ _)
     def ^(x: async.Int): async.Int = op(async.Int)(x)(_ ^ _)
-    def ^(x: FLong): FLong = op(FLong)(x)(_ ^ _)
+    def ^(x: async.Long): async.Long = op(async.Long)(x)(_ ^ _)
 
     def +(x: async.Byte): async.Int = op(async.Int)(x)(_ + _)
     def +(x: async.Short): async.Int = op(async.Int)(x)(_ + _)
     def +(x: async.Char): async.Int = op(async.Int)(x)(_ + _)
     def +(x: async.Int): async.Int = op(async.Int)(x)(_ + _)
-    def +(x: FLong): FLong = op(FLong)(x)(_ + _)
+    def +(x: async.Long): async.Long = op(async.Long)(x)(_ + _)
     def +(x: async.Float): async.Float = op(async.Float)(x)(_ + _)
     def +(x: async.Double): async.Double = op(async.Double)(x)(_ + _)
 
@@ -110,7 +110,7 @@ class Char(val future: Future[scala.Char])(override implicit protected val execu
     def -(x: async.Short): async.Int = op(async.Int)(x)(_ - _)
     def -(x: async.Char): async.Int = op(async.Int)(x)(_ - _)
     def -(x: async.Int): async.Int = op(async.Int)(x)(_ - _)
-    def -(x: FLong): FLong = op(FLong)(x)(_ - _)
+    def -(x: async.Long): async.Long = op(async.Long)(x)(_ - _)
     def -(x: async.Float): async.Float = op(async.Float)(x)(_ - _)
     def -(x: async.Double): async.Double = op(async.Double)(x)(_ - _)
 
@@ -118,7 +118,7 @@ class Char(val future: Future[scala.Char])(override implicit protected val execu
     def *(x: async.Short): async.Int = op(async.Int)(x)(_ * _)
     def *(x: async.Char): async.Int = op(async.Int)(x)(_ * _)
     def *(x: async.Int): async.Int = op(async.Int)(x)(_ * _)
-    def *(x: FLong): FLong = op(FLong)(x)(_ * _)
+    def *(x: async.Long): async.Long = op(async.Long)(x)(_ * _)
     def *(x: async.Float): async.Float = op(async.Float)(x)(_ * _)
     def *(x: async.Double): async.Double = op(async.Double)(x)(_ * _)
 
@@ -126,7 +126,7 @@ class Char(val future: Future[scala.Char])(override implicit protected val execu
     def /(x: async.Short): async.Int = op(async.Int)(x)(_ / _)
     def /(x: async.Char): async.Int = op(async.Int)(x)(_ / _)
     def /(x: async.Int): async.Int = op(async.Int)(x)(_ / _)
-    def /(x: FLong): FLong = op(FLong)(x)(_ / _)
+    def /(x: async.Long): async.Long = op(async.Long)(x)(_ / _)
     def /(x: async.Float): async.Float = op(async.Float)(x)(_ / _)
     def /(x: async.Double): async.Double = op(async.Double)(x)(_ / _)
 
@@ -134,7 +134,7 @@ class Char(val future: Future[scala.Char])(override implicit protected val execu
     def %(x: async.Short): async.Int = op(async.Int)(x)(_ % _)
     def %(x: async.Char): async.Int = op(async.Int)(x)(_ % _)
     def %(x: async.Int): async.Int = op(async.Int)(x)(_ % _)
-    def %(x: FLong): FLong = op(FLong)(x)(_ % _)
+    def %(x: async.Long): async.Long = op(async.Long)(x)(_ % _)
     def %(x: async.Float): async.Float = op(async.Float)(x)(_ % _)
     def %(x: async.Double): async.Double = op(async.Double)(x)(_ % _)
 }
