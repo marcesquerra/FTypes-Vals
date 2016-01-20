@@ -17,7 +17,7 @@ package object ftypes {
 
 
 
-    implicit def implicitByteToFByte             (v: scala.Byte)(implicit executionContext: ExecutionContext):       FByte       = FByte(v)
+    implicit def implicitByteToFByte             (v: scala.Byte)(implicit executionContext: ExecutionContext):       async.Byte       = async.Byte(v)
     implicit def implicitCharToFChar             (v: scala.Char)(implicit executionContext: ExecutionContext):       FChar       = FChar(v)
     implicit def implicitShortToFShort           (v: scala.Short)(implicit executionContext: ExecutionContext):      FShort      = FShort(v)
     implicit def implicitIntToFInt               (v: scala.Int)(implicit executionContext: ExecutionContext):        FInt        = FInt(v)
