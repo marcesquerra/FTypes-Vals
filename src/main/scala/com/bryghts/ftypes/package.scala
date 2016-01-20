@@ -17,13 +17,13 @@ package object ftypes {
 
 
 
-    implicit def implicitByteToFByte             (v: Byte)(implicit executionContext: ExecutionContext):       FByte       = FByte(v)
-    implicit def implicitCharToFChar             (v: Char)(implicit executionContext: ExecutionContext):       FChar       = FChar(v)
-    implicit def implicitShortToFShort           (v: Short)(implicit executionContext: ExecutionContext):      FShort      = FShort(v)
-    implicit def implicitIntToFInt               (v: Int)(implicit executionContext: ExecutionContext):        FInt        = FInt(v)
-    implicit def implicitLongToFLong             (v: Long)(implicit executionContext: ExecutionContext):       FLong       = FLong(v)
-    implicit def implicitFloatToFFloat           (v: Float)(implicit executionContext: ExecutionContext):      FFloat      = FFloat(v)
-    implicit def implicitDoubleToFDouble         (v: Double)(implicit executionContext: ExecutionContext):     FDouble     = FDouble(v)
+    implicit def implicitByteToFByte             (v: scala.Byte)(implicit executionContext: ExecutionContext):       FByte       = FByte(v)
+    implicit def implicitCharToFChar             (v: scala.Char)(implicit executionContext: ExecutionContext):       FChar       = FChar(v)
+    implicit def implicitShortToFShort           (v: scala.Short)(implicit executionContext: ExecutionContext):      FShort      = FShort(v)
+    implicit def implicitIntToFInt               (v: scala.Int)(implicit executionContext: ExecutionContext):        FInt        = FInt(v)
+    implicit def implicitLongToFLong             (v: scala.Long)(implicit executionContext: ExecutionContext):       FLong       = FLong(v)
+    implicit def implicitFloatToFFloat           (v: scala.Float)(implicit executionContext: ExecutionContext):      FFloat      = FFloat(v)
+    implicit def implicitDoubleToFDouble         (v: scala.Double)(implicit executionContext: ExecutionContext):     FDouble     = FDouble(v)
 
     implicit def implicitBooleanToFBoolean       (v: scala.Boolean)(implicit executionContext: ExecutionContext):    async.Boolean    = async.Boolean(v)
 

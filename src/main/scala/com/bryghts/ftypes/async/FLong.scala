@@ -6,12 +6,12 @@ import scala.concurrent.{ExecutionContext, Future}
 /**
  * Created by Marc Esquerrà on 24/03/15.
  */
-class FLong(val future: Future[Long])(override implicit protected val executionContext: ExecutionContext) extends async.Any[Long, FLong]{
+class FLong(val future: Future[scala.Long])(override implicit protected val executionContext: ExecutionContext) extends async.Any[scala.Long, FLong]{
 
-    def op[R, FR <: async.Any[R, FR], B](r: async.AnyCompanion[R, FR])(fb: async.Any[B, _])(f: (Long, B) => R): FR =
+    def op[R, FR <: async.Any[R, FR], B](r: async.AnyCompanion[R, FR])(fb: async.Any[B, _])(f: (scala.Long, B) => R): FR =
         r(future.flatMap(a => fb.future.map(b => f(a, b))))
 
-    def op[R, FR <: async.Any[R, FR]](r: async.AnyCompanion[R, FR], f: Long => R): FR =
+    def op[R, FR <: async.Any[R, FR]](r: async.AnyCompanion[R, FR], f: scala.Long => R): FR =
         r(future.map(f))
 
     def toFByte: FByte = op(FByte, _.toByte)
@@ -140,6 +140,6 @@ class FLong(val future: Future[Long])(override implicit protected val executionC
     def %(x: FDouble): FDouble = op(FDouble)(x)(_ % _)
 }
 
-object FLong extends async.AnyCompanion[Long, FLong] {
-    override def apply(in: Future[Long])(implicit executionContext: ExecutionContext): FLong = new FLong(in)
+object FLong extends async.AnyCompanion[scala.Long, FLong] {
+    override def apply(in: Future[scala.Long])(implicit executionContext: ExecutionContext): FLong = new FLong(in)
 }

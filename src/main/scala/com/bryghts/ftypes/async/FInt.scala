@@ -6,12 +6,12 @@ import scala.concurrent.{ExecutionContext, Future}
 /**
  * Created by Marc Esquerrà on 24/03/15.
  */
-class FInt(val future: Future[Int])(override implicit protected val executionContext: ExecutionContext) extends async.Any[Int, FInt]{
+class FInt(val future: Future[scala.Int])(override implicit protected val executionContext: ExecutionContext) extends async.Any[scala.Int, FInt]{
 
-    def op[R, FR <: async.Any[R, FR], B](r: async.AnyCompanion[R, FR])(fb: async.Any[B, _])(f: (Int, B) => R): FR =
+    def op[R, FR <: async.Any[R, FR], B](r: async.AnyCompanion[R, FR])(fb: async.Any[B, _])(f: (scala.Int, B) => R): FR =
         r(future.flatMap(a => fb.future.map(b => f(a, b))))
 
-    def op[R, FR <: async.Any[R, FR]](r: async.AnyCompanion[R, FR], f: Int => R): FR =
+    def op[R, FR <: async.Any[R, FR]](r: async.AnyCompanion[R, FR], f: scala.Int => R): FR =
         r(future.map(f))
 
     def toFByte: FByte = op(FByte, _.toByte)
@@ -141,6 +141,6 @@ class FInt(val future: Future[Int])(override implicit protected val executionCon
     def %(x: FDouble): FDouble = op(FDouble)(x)(_ % _)
 }
 
-object FInt extends async.AnyCompanion[Int, FInt] {
-    override def apply(in: Future[Int])(implicit executionContext: ExecutionContext): FInt = new FInt(in)
+object FInt extends async.AnyCompanion[scala.Int, FInt] {
+    override def apply(in: Future[scala.Int])(implicit executionContext: ExecutionContext): FInt = new FInt(in)
 }

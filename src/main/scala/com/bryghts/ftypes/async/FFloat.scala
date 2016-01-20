@@ -6,12 +6,12 @@ import scala.concurrent.{ExecutionContext, Future}
 /**
  * Created by Marc Esquerrà on 24/03/15.
  */
-class FFloat(val future: Future[Float])(override implicit protected val executionContext: ExecutionContext) extends async.Any[Float, FFloat]{
+class FFloat(val future: Future[scala.Float])(override implicit protected val executionContext: ExecutionContext) extends async.Any[scala.Float, FFloat]{
 
-    def op[R, FR <: async.Any[R, FR], B](r: async.AnyCompanion[R, FR])(fb: async.Any[B, _])(f: (Float, B) => R): FR =
+    def op[R, FR <: async.Any[R, FR], B](r: async.AnyCompanion[R, FR])(fb: async.Any[B, _])(f: (scala.Float, B) => R): FR =
         r(future.flatMap(a => fb.future.map(b => f(a, b))))
 
-    def op[R, FR <: async.Any[R, FR]](r: async.AnyCompanion[R, FR], f: Float => R): FR =
+    def op[R, FR <: async.Any[R, FR]](r: async.AnyCompanion[R, FR], f: scala.Float => R): FR =
         r(future.map(f))
 
     def toFByte: FByte = op(FByte, _.toByte)
@@ -114,6 +114,6 @@ class FFloat(val future: Future[Float])(override implicit protected val executio
     def %(x: FDouble): FDouble = op(FDouble)(x)(_ % _)
 }
 
-object FFloat extends async.AnyCompanion[Float, FFloat] {
-    override def apply(in: Future[Float])(implicit executionContext: ExecutionContext): FFloat = new FFloat(in)
+object FFloat extends async.AnyCompanion[scala.Float, FFloat] {
+    override def apply(in: Future[scala.Float])(implicit executionContext: ExecutionContext): FFloat = new FFloat(in)
 }

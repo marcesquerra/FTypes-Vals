@@ -6,12 +6,12 @@ import scala.concurrent.{ExecutionContext, Future}
 /**
  * Created by Marc Esquerrà on 24/03/15.
  */
-class FByte(val future: Future[Byte])(override implicit protected val executionContext: ExecutionContext) extends async.Any[Byte, FByte]{
+class FByte(val future: Future[scala.Byte])(override implicit protected val executionContext: ExecutionContext) extends async.Any[scala.Byte, FByte]{
 
-    private def op[R, FR <: async.Any[R, FR], B](r: async.AnyCompanion[R, FR])(fb: async.Any[B, _])(f: (Byte, B) => R): FR =
+    private def op[R, FR <: async.Any[R, FR], B](r: async.AnyCompanion[R, FR])(fb: async.Any[B, _])(f: (scala.Byte, B) => R): FR =
         r(future.flatMap(a => fb.future.map(b => f(a, b))))
 
-    private def op[R, FR <: async.Any[R, FR]](r: async.AnyCompanion[R, FR], f: Byte => R): FR =
+    private def op[R, FR <: async.Any[R, FR]](r: async.AnyCompanion[R, FR], f: scala.Byte => R): FR =
         r(future.map(f))
 
     def toFByte  : FByte   = this
@@ -126,6 +126,6 @@ class FByte(val future: Future[Byte])(override implicit protected val executionC
     def %(x: FDouble): FDouble = op(FDouble)(x)(_ % _)
 }
 
-object FByte extends async.AnyCompanion[Byte, FByte] {
-    override def apply(in: Future[Byte])(implicit executionContext: ExecutionContext): FByte = new FByte(in)
+object FByte extends async.AnyCompanion[scala.Byte, FByte] {
+    override def apply(in: Future[scala.Byte])(implicit executionContext: ExecutionContext): FByte = new FByte(in)
 }

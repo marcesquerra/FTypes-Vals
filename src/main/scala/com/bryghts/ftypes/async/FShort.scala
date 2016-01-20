@@ -6,12 +6,12 @@ import scala.concurrent.{ExecutionContext, Future}
 /**
  * Created by Marc Esquerrà on 24/03/15.
  */
-class FShort(val future: Future[Short])(override implicit protected val executionContext: ExecutionContext) extends async.Any[Short, FShort]{
+class FShort(val future: Future[scala.Short])(override implicit protected val executionContext: ExecutionContext) extends async.Any[scala.Short, FShort]{
 
-    def op[R, FR <: async.Any[R, FR], B](r: async.AnyCompanion[R, FR])(fb: async.Any[B, _])(f: (Short, B) => R): FR =
+    def op[R, FR <: async.Any[R, FR], B](r: async.AnyCompanion[R, FR])(fb: async.Any[B, _])(f: (scala.Short, B) => R): FR =
         r(future.flatMap(a => fb.future.map(b => f(a, b))))
 
-    def op[R, FR <: async.Any[R, FR]](r: async.AnyCompanion[R, FR], f: Short => R): FR =
+    def op[R, FR <: async.Any[R, FR]](r: async.AnyCompanion[R, FR], f: scala.Short => R): FR =
         r(future.map(f))
 
     def toFByte: FByte = op(FByte, _.toByte)
@@ -140,6 +140,6 @@ class FShort(val future: Future[Short])(override implicit protected val executio
     def %(x: FFloat): FFloat = op(FFloat)(x)(_ % _)
     def %(x: FDouble): FDouble = op(FDouble)(x)(_ % _)
 }
-object FShort extends async.AnyCompanion[Short, FShort] {
-    override def apply(in: Future[Short])(implicit executionContext: ExecutionContext): FShort = new FShort(in)
+object FShort extends async.AnyCompanion[scala.Short, FShort] {
+    override def apply(in: Future[scala.Short])(implicit executionContext: ExecutionContext): FShort = new FShort(in)
 }
