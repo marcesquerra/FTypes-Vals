@@ -9,7 +9,7 @@ import scala.concurrent.duration.Duration
 /**
  * Created by Marc Esquerrà on 01/03/15.
  */
-class SomeTest extends Specification {
+class SomeTest extends Specification with ValExtensions {
 
     "This is a basic test to chack basic aspects".txt
 
