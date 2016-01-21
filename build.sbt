@@ -96,3 +96,23 @@ releaseProcess := Seq[ReleaseStep](
 
 
 
+lazy val root = project.in(file(".")).
+    aggregate(fooJS, fooJVM).
+    settings(
+        publish := {},
+        publishLocal := {}
+    )
+
+lazy val foo = crossProject.in(file(".")).
+    settings(
+        name := nameLiteral
+    ).
+    jvmSettings(
+        // Add JVM-specific settings here
+    ).
+    jsSettings(
+        // Add JS-specific settings here
+    )
+
+lazy val fooJVM = foo.jvm
+lazy val fooJS = foo.js
