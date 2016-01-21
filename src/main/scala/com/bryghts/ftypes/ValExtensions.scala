@@ -1,4 +1,4 @@
-package com.bryghts
+package com.bryghts.ftypes
 
 
 import com.bryghts.ftypes.async._
@@ -10,10 +10,10 @@ import scala.language.implicitConversions
 /**
 * Created by Marc Esquerrà on 29/01/2015.
 */
-package object ftypes {
+trait ValExtensions {
 
-    def ftrue(implicit executionContext: ExecutionContext)  = async.Boolean(true)
-    def ffalse(implicit executionContext: ExecutionContext) = async.Boolean(false)
+    def ftrue  (implicit executionContext: ExecutionContext) = async.Boolean(true)
+    def ffalse (implicit executionContext: ExecutionContext) = async.Boolean(false)
 
 
 
