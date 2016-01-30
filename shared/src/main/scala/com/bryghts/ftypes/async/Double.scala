@@ -6,12 +6,13 @@ import scala.concurrent.{ExecutionContext, Future}
 /**
  * Created by Marc Esquerrà on 24/03/15.
  */
-class Double(val future: Future[scala.Double])(override implicit protected val executionContext: ExecutionContext) extends async.Any[scala.Double, async.Double]{
+class Double(override          val future: Future[scala.Double])
+            (override implicit val executionContext: ExecutionContext) extends async.AnyBase[scala.Double, async.Double]{
 
-    def op[R, FR <: async.Any[R, FR], B](r: async.AnyCompanion[R, FR])(fb: async.Any[B, _])(f: (scala.Double, B) => R): FR =
+    @inline def op[R, FR <: async.AnyBase[R, FR], B](r: async.Builder[R, FR])(fb: async.AnyBase[B, _])(f: (scala.Double, B) => R): FR =
         r(future.flatMap(a => fb.future.map(b => f(a, b))))
 
-    def op[R, FR <: async.Any[R, FR]](r: async.AnyCompanion[R, FR], f: scala.Double => R): FR =
+    @inline def op[R, FR <: async.AnyBase[R, FR]](r: async.Builder[R, FR], f: scala.Double => R): FR =
         r(future.map(f))
 
     def toFByte: async.Byte = op(async.Byte, _.toByte)
@@ -114,6 +115,15 @@ class Double(val future: Future[scala.Double])(override implicit protected val e
     def %(x: async.Double): async.Double = op(async.Double)(x)(_ % _)
 }
 
-object Double extends async.AnyCompanion[scala.Double, async.Double] {
-    override def apply(in: Future[scala.Double])(implicit executionContext: ExecutionContext): async.Double = new async.Double(in)
+
+object Double extends Builder[scala.Double, async.Double]{
+
+    implicit val from = Builder[scala.Double, async.Double]{(f, ec) => new async.Double(f)(ec)}
+
+    implicit def implicitDoubleToAsyncDouble (v: scala.Double)    (implicit executionContext: ExecutionContext): async.Double  =
+        async.Double from v
+
+    override def apply(in: Future[scala.Double])(implicit executionContext: ExecutionContext): async.Double =
+        new async.Double(in)
+
 }

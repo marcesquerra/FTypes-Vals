@@ -6,12 +6,13 @@ import scala.concurrent.{ExecutionContext, Future}
 /**
  * Created by Marc Esquerrà on 24/03/15.
  */
-class Int(val future: Future[scala.Int])(override implicit protected val executionContext: ExecutionContext) extends async.Any[scala.Int, async.Int]{
+class Int(override          val future: Future[scala.Int])
+         (override implicit val executionContext: ExecutionContext) extends async.AnyBase[scala.Int, async.Int]{
 
-    def op[R, FR <: async.Any[R, FR], B](r: async.AnyCompanion[R, FR])(fb: async.Any[B, _])(f: (scala.Int, B) => R): FR =
+    @inline def op[R, FR <: async.AnyBase[R, FR], B](r: async.Builder[R, FR])(fb: async.AnyBase[B, _])(f: (scala.Int, B) => R): FR =
         r(future.flatMap(a => fb.future.map(b => f(a, b))))
 
-    def op[R, FR <: async.Any[R, FR]](r: async.AnyCompanion[R, FR], f: scala.Int => R): FR =
+    @inline def op[R, FR <: async.AnyBase[R, FR]](r: async.Builder[R, FR], f: scala.Int => R): FR =
         r(future.map(f))
 
     def toFByte: async.Byte = op(async.Byte, _.toByte)
@@ -141,6 +142,15 @@ class Int(val future: Future[scala.Int])(override implicit protected val executi
     def %(x: async.Double): async.Double = op(async.Double)(x)(_ % _)
 }
 
-object Int extends async.AnyCompanion[scala.Int, async.Int] {
-    override def apply(in: Future[scala.Int])(implicit executionContext: ExecutionContext): async.Int = new async.Int(in)
+
+object Int extends Builder[scala.Int, async.Int]{
+
+    implicit val from = Builder[scala.Int, async.Int]{(f, ec) => new async.Int(f)(ec)}
+
+    implicit def implicitIntToAsyncInt (v: scala.Int)    (implicit executionContext: ExecutionContext): async.Int  =
+        async.Int from v
+
+    override def apply(in: Future[scala.Int])(implicit executionContext: ExecutionContext): async.Int =
+        new async.Int(in)
+
 }

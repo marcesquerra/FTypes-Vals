@@ -6,12 +6,13 @@ import scala.concurrent.{ExecutionContext, Future}
 /**
  * Created by Marc Esquerrà on 24/03/15.
  */
-class Short(val future: Future[scala.Short])(override implicit protected val executionContext: ExecutionContext) extends async.Any[scala.Short, async.Short]{
+class Short(override          val future: Future[scala.Short])
+           (override implicit val executionContext: ExecutionContext) extends async.AnyBase[scala.Short, async.Short]{
 
-    def op[R, FR <: async.Any[R, FR], B](r: async.AnyCompanion[R, FR])(fb: async.Any[B, _])(f: (scala.Short, B) => R): FR =
+    @inline def op[R, FR <: async.AnyBase[R, FR], B](r: async.Builder[R, FR])(fb: async.AnyBase[B, _])(f: (scala.Short, B) => R): FR =
         r(future.flatMap(a => fb.future.map(b => f(a, b))))
 
-    def op[R, FR <: async.Any[R, FR]](r: async.AnyCompanion[R, FR], f: scala.Short => R): FR =
+    @inline def op[R, FR <: async.AnyBase[R, FR]](r: async.Builder[R, FR], f: scala.Short => R): FR =
         r(future.map(f))
 
     def toFByte: async.Byte = op(async.Byte, _.toByte)
@@ -140,6 +141,16 @@ class Short(val future: Future[scala.Short])(override implicit protected val exe
     def %(x: async.Float): async.Float = op(async.Float)(x)(_ % _)
     def %(x: async.Double): async.Double = op(async.Double)(x)(_ % _)
 }
-object Short extends async.AnyCompanion[scala.Short, async.Short] {
-    override def apply(in: Future[scala.Short])(implicit executionContext: ExecutionContext): async.Short = new async.Short(in)
+
+
+object Short extends Builder[scala.Short, async.Short]{
+
+    implicit val from = Builder[scala.Short, async.Short]{(f, ec) => new async.Short(f)(ec)}
+
+    implicit def implicitShortToAsyncShort (v: scala.Short)    (implicit executionContext: ExecutionContext): async.Short  =
+        async.Short from v
+
+    override def apply(in: Future[scala.Short])(implicit executionContext: ExecutionContext): async.Short =
+        new async.Short(in)
+
 }

@@ -6,12 +6,13 @@ import scala.concurrent.{ExecutionContext, Future}
 /**
  * Created by Marc Esquerrà on 24/03/15.
  */
-class Char(val future: Future[scala.Char])(override implicit protected val executionContext: ExecutionContext) extends async.Any[scala.Char, async.Char]{
+class Char(override          val future: Future[scala.Char])
+          (override implicit val executionContext: ExecutionContext) extends async.AnyBase[scala.Char, async.Char]{
 
-    def op[R, FR <: async.Any[R, FR], B](r: async.AnyCompanion[R, FR])(fb: async.Any[B, _])(f: (scala.Char, B) => R): FR =
+    @inline def op[R, FR <: async.AnyBase[R, FR], B](r: async.Builder[R, FR])(fb: async.AnyBase[B, _])(f: (scala.Char, B) => R): FR =
         r(future.flatMap(a => fb.future.map(b => f(a, b))))
 
-    def op[R, FR <: async.Any[R, FR]](r: async.AnyCompanion[R, FR], f: scala.Char => R): FR =
+    @inline def op[R, FR <: async.AnyBase[R, FR]](r: async.Builder[R, FR], f: scala.Char => R): FR =
         r(future.map(f))
 
     def toFShort: async.Short = op(async.Short, _.toShort)
@@ -138,6 +139,16 @@ class Char(val future: Future[scala.Char])(override implicit protected val execu
     def %(x: async.Float): async.Float = op(async.Float)(x)(_ % _)
     def %(x: async.Double): async.Double = op(async.Double)(x)(_ % _)
 }
-object Char extends async.AnyCompanion[scala.Char, async.Char] {
-    override def apply(in: Future[scala.Char])(implicit executionContext: ExecutionContext): async.Char = new async.Char(in)
+
+
+object Char extends Builder[scala.Char, async.Char]{
+
+    implicit val from = Builder[scala.Char, async.Char]{(f, ec) => new async.Char(f)(ec)}
+
+    implicit def implicitCharToAsyncChar (v: scala.Char)    (implicit executionContext: ExecutionContext): async.Char  =
+        async.Char from v
+
+    override def apply(in: Future[scala.Char])(implicit executionContext: ExecutionContext): async.Char =
+        new async.Char(in)
+
 }

@@ -17,18 +17,32 @@ class SomeTest extends Specification with ValExtensions {
         "for basic cases" in {
             val x: async.Int = 3
             val y = x + 4
+            val b: scala.Byte = 7
+            val c: async.Byte = b
 
-            Await.result(y, Duration.Inf) must_=== 7
+            Await.result(y.future, Duration.Inf) must_=== 7
         }
         "for comparisons" in {
             val x: async.Int = 3
             val y = x + 4
             val r = y === 7
 
-            Await.result(r, Duration.Inf) must beTrue
-            val r2 = y === 6
+            Await.result(r.future, Duration.Inf) must beTrue
+            val r2 = y === async.Int(6)
 
-            Await.result(r2, Duration.Inf) must beFalse
+            println(
+                s"""
+                   |
+                   |
+                   |
+                   |
+                   |-------------
+                   |${4 == 4.0}
+                   |-------------
+                   |
+                 """.stripMargin)
+            Await.result(r2.future, Duration.Inf) must beFalse
+
         }
     }
 
