@@ -16,13 +16,13 @@ class Long(override          val future: Future[scala.Long])
     @inline def op[R, FR <: async.AnyBase[R, FR]](r: async.Builder[R, FR], f: scala.Long => R): FR =
         r(future.map(f))
 
-    def toFByte: async.Byte = op(async.Byte, _.toByte)
-    def toFShort: async.Short = op(async.Short, _.toShort)
-    def toFChar: async.Char = op(async.Char, _.toChar)
-    def toFInt: async.Int = op(async.Int, _.toInt)
-    def toFLong: async.Long = this
-    def toFFloat: async.Float = op(async.Float, _.toFloat)
-    def toFDouble: async.Double = op(async.Double, _.toDouble)
+    def toByte: async.Byte = op(async.Byte, _.toByte)
+    def toShort: async.Short = op(async.Short, _.toShort)
+    def toChar: async.Char = op(async.Char, _.toChar)
+    def toInt: async.Int = op(async.Int, _.toInt)
+    def toLong: async.Long = this
+    def toFloat: async.Float = op(async.Float, _.toFloat)
+    def toDouble: async.Double = op(async.Double, _.toDouble)
 
     def unary_~ : async.Long = op(async.Long, _.unary_~ )
     def unary_+ : async.Long = op(async.Long, _.unary_+ )

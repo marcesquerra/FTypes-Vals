@@ -16,23 +16,23 @@ class Char(override          val future: Future[scala.Char])
     @inline def op[R, FR <: async.AnyBase[R, FR]](r: async.Builder[R, FR], f: scala.Char => R): FR =
         r(future.map(f))
 
-    def toFShort: async.Short = op(async.Short, _.toShort)
-    def toFChar: async.Char = this
-    def toFInt: async.Int = op(async.Int, _.toInt)
-    def toFLong: async.Long = op(async.Long, _.toLong)
-    def toFFloat: async.Float = op(async.Float, _.toFloat)
-    def toFDouble: async.Double = op(async.Double, _.toDouble)
+    def toShort:  async.Short  = op(async.Short, _.toShort)
+    def toChar:   async.Char   = this
+    def toInt:    async.Int    = op(async.Int, _.toInt)
+    def toLong:   async.Long   = op(async.Long, _.toLong)
+    def toFloat:  async.Float  = op(async.Float, _.toFloat)
+    def toDouble: async.Double = op(async.Double, _.toDouble)
 
     def unary_~ : async.Int = op(async.Int, _.unary_~ )
     def unary_+ : async.Int = op(async.Int, _.unary_+ )
     def unary_- : async.Int = op(async.Int, _.unary_- )
 
-    def <<(x: async.Int): async.Int = op(async.Int)(x)(_ << _)
-    def <<(x: async.Long): async.Int = op(async.Int)(x)(_ << _)
-    def >>>(x: async.Int): async.Int = op(async.Int)(x)(_ >>> _)
+    def << (x: async.Int):  async.Int = op(async.Int)(x)(_ << _)
+    def << (x: async.Long): async.Int = op(async.Int)(x)(_ << _)
+    def >>>(x: async.Int):  async.Int = op(async.Int)(x)(_ >>> _)
     def >>>(x: async.Long): async.Int = op(async.Int)(x)(_ >>> _)
-    def >>(x: async.Int): async.Int = op(async.Int)(x)(_ >> _)
-    def >>(x: async.Long): async.Int = op(async.Int)(x)(_ >> _)
+    def >> (x: async.Int):  async.Int = op(async.Int)(x)(_ >> _)
+    def >> (x: async.Long): async.Int = op(async.Int)(x)(_ >> _)
 
     def ==(x: async.Byte): async.Boolean = op(async.Boolean)(x)(_ == _)
     def ==(x: async.Short): async.Boolean = op(async.Boolean)(x)(_ == _)
