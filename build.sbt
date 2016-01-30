@@ -66,14 +66,11 @@ lazy val root = project.in(file("."))
 lazy val cross = crossProject.in(file("."))
     .settings(
         moduleName := nameLiteral,
-        name := nameLiteral
+        name := nameLiteral,
+        libraryDependencies ++= Seq( "com.lihaoyi" %%% "utest" % "0.3.1" % "test" ),
+        testFrameworks      +=  new TestFramework("utest.runner.Framework")
     )
     .settings(allSettings: _*)
-    .jvmSettings(
-        libraryDependencies ++= Seq(
-            "org.specs2"     %% "specs2-scalacheck"  % "2.4.17"       % "test"
-        )
-    )
     .jsSettings(commonJsSettings: _*)
     .jvmConfigure(_.copy(id = "crossJvm"))
     .jsConfigure(_.copy(id  = "crossJs"))

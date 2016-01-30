@@ -2,6 +2,7 @@ package com.bryghts.ftypes
 package async
 
 import scala.concurrent.{ExecutionContext, Future}
+import scala.language.implicitConversions
 
 /**
  * Created by Marc Esquerrà on 24/03/15.
